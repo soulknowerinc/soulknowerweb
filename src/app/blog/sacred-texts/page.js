@@ -6,6 +6,7 @@ const RELATED = [
     { icon: "🐍", title: "Kundalini Awakening", desc: "Unlock the serpent energy within your spine.", href: "/blog/kundalini" },
 ];
 
+// test
 export default function SacredTextsPage() {
     return (
         <>
