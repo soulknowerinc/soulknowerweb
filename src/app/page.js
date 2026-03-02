@@ -2,6 +2,19 @@
 
 import { useEffect, useState, useRef, useCallback } from "react";
 
+/* ─────────────── MOBILE DETECTION ─────────────── */
+
+function useIsMobile(breakpoint = 768) {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= breakpoint);
+    check();
+    window.addEventListener('resize', check, { passive: true });
+    return () => window.removeEventListener('resize', check);
+  }, [breakpoint]);
+  return isMobile;
+}
+
 /* ─────────────── SVG COMPONENTS ─────────────── */
 
 function LotusIcon({ className, size = 48 }) {
@@ -196,27 +209,45 @@ function MantraTicker() {
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
+
   return (
-    <nav className={`navbar ${scrolled ? "scrolled" : ""}`} id="navbar">
+    <nav className={`navbar ${scrolled ? "scrolled" : ""} ${menuOpen ? "menu-open" : ""}`} id="navbar">
       <div className="nav-container">
         <a href="#" className="nav-logo">
           <div className="logo-icon"><LotusIcon size={48} /></div>
           <span className="logo-text">SoulKnower</span>
         </a>
-        <ul className="nav-links">
-          <li><a href="#home" className="nav-link">Home</a></li>
-          <li><a href="#about" className="nav-link">About</a></li>
-          <li><a href="#blogs" className="nav-link">Blogs</a></li>
-          <li><a href="#videos" className="nav-link">Videos</a></li>
+        <ul className={`nav-links ${menuOpen ? "mobile-active" : ""}`}>
+          <li><a href="#home" className="nav-link" onClick={() => setMenuOpen(false)}>Home</a></li>
+          <li><a href="#about" className="nav-link" onClick={() => setMenuOpen(false)}>About</a></li>
+          <li><a href="#blogs" className="nav-link" onClick={() => setMenuOpen(false)}>Blogs</a></li>
+          <li><a href="#videos" className="nav-link" onClick={() => setMenuOpen(false)}>Videos</a></li>
           <li><a href="https://www.youtube.com/@SoulKnower" target="_blank" rel="noopener noreferrer" className="nav-cta">Subscribe ✦</a></li>
         </ul>
-        <button className="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+        <button
+          className={`mobile-toggle ${menuOpen ? "active" : ""}`}
+          aria-label="Menu"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </nav>
   );
@@ -597,6 +628,7 @@ function useMagneticButtons() {
 /* ─────────────── MAIN PAGE ─────────────── */
 
 export default function Home() {
+  const isMobile = useIsMobile();
   useMagneticButtons();
 
   useEffect(() => {
@@ -614,26 +646,28 @@ export default function Home() {
     <>
       <LoadingScreen />
       <ScrollProgress />
-      <CursorGlow />
-      <Aurora />
+      {/* Heavy effects — desktop only */}
+      {!isMobile && <CursorGlow />}
+      {!isMobile && <Aurora />}
       <div className="cosmic-bg" />
-      {/* Shooting stars */}
-      <div className="cosmic-shooting-stars">
-        <div className="shooting-star" />
-        <div className="shooting-star" />
-        <div className="shooting-star" />
-        <div className="shooting-star" />
-      </div>
-      {/* Nebula clouds */}
-      <div className="cosmic-nebula">
-        <div className="nebula-cloud" />
-        <div className="nebula-cloud" />
-        <div className="nebula-cloud" />
-        <div className="nebula-cloud" />
-      </div>
-      {/* Sacred grid */}
-      <div className="cosmic-grid" />
-      <Particles />
+      {!isMobile && (
+        <>
+          <div className="cosmic-shooting-stars">
+            <div className="shooting-star" />
+            <div className="shooting-star" />
+            <div className="shooting-star" />
+            <div className="shooting-star" />
+          </div>
+          <div className="cosmic-nebula">
+            <div className="nebula-cloud" />
+            <div className="nebula-cloud" />
+            <div className="nebula-cloud" />
+            <div className="nebula-cloud" />
+          </div>
+          <div className="cosmic-grid" />
+          <Particles />
+        </>
+      )}
       <Navbar />
       <main>
         <HeroSection />

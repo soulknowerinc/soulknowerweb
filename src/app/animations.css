@@ -645,19 +645,279 @@
     }
 }
 
-/* ==================== RESPONSIVE DISABLE CURSOR ==================== */
+/* ==================== MOBILE PERFORMANCE OPTIMIZATIONS ==================== */
+/* Disable all GPU-heavy effects on mobile for smooth scrolling */
+
 @media (max-width: 768px) {
 
+    /* Remove cursor effects (no mouse on mobile) */
     .cursor-glow,
     .cursor-dot {
-        display: none;
+        display: none !important;
+    }
+
+    /* Remove particles entirely */
+    .particle {
+        display: none !important;
+    }
+
+    /* Remove aurora beams (blur + transform heavy) */
+    .aurora {
+        display: none !important;
+    }
+
+    /* Remove nebula clouds (blur 100px = very expensive) */
+    .cosmic-nebula {
+        display: none !important;
+    }
+
+    /* Remove shooting stars */
+    .cosmic-shooting-stars {
+        display: none !important;
+    }
+
+    /* Remove sacred geometry grid */
+    .cosmic-grid {
+        display: none !important;
+    }
+
+    /* Simplify cosmic background — static, no animation */
+    .cosmic-bg::before {
+        animation: none !important;
+    }
+
+    .cosmic-bg::after {
+        animation: none !important;
+    }
+
+    /* Remove morph blobs (blur 60px) */
+    .morph-blob {
+        display: none !important;
+    }
+
+    /* Remove energy wave pulses */
+    .energy-wave {
+        display: none !important;
+    }
+
+    /* Simplify hero — remove parallax and mandala */
+    .hero-parallax-layer {
+        display: none !important;
+    }
+
+    .hero-mandala {
+        display: none !important;
+    }
+
+    .hero-bg-image {
+        animation: none !important;
+    }
+
+    /* Disable 3D card tilt — too heavy on mobile */
+    .blog-card {
+        transform-style: flat !important;
+        perspective: none !important;
+    }
+
+    .blog-card .blog-card-body {
+        transform: none !important;
+    }
+
+    .blog-card .blog-card-category {
+        transform: none !important;
+    }
+
+    /* Remove animated card borders and shimmer sweep */
+    .blog-card::before,
+    .blog-card::after {
+        display: none !important;
+    }
+
+    /* Remove rotating sacred geometry in card backgrounds */
+    .blog-card-image .gradient-bg::after {
+        animation: none !important;
+    }
+
+    /* Simplify box shadows */
+    .blog-card:hover {
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) !important;
+        transform: translateY(-4px) !important;
+    }
+
+    .video-frame {
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    .video-frame:hover {
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5) !important;
+        transform: none !important;
+    }
+
+    /* Simplify play button — remove pulse ring */
+    .play-button::before,
+    .play-button::after {
+        display: none !important;
+    }
+
+    .play-button {
+        box-shadow: 0 4px 16px rgba(201, 168, 76, 0.3) !important;
+    }
+
+    /* Remove logo pulse filter animation */
+    .logo-icon {
+        animation: none !important;
+    }
+
+    /* Remove stat card hover overlay */
+    .stat-card::before {
+        display: none !important;
+    }
+
+    /* Simplify newsletter border glow */
+    .newsletter-card::before {
+        animation: none !important;
+        opacity: 0.3 !important;
+    }
+
+    /* Simplify section glow line */
+    .section-header::after {
+        animation: none !important;
+        width: 80px !important;
+        opacity: 0.6 !important;
+    }
+
+    /* Simplify sacred divider */
+    .sacred-divider svg {
+        animation: none !important;
+    }
+
+    /* Remove footer stagger animation — just show */
+    .footer-grid>div {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+    }
+
+    /* Keep mantra ticker but simpler */
+    .mantra-track {
+        animation-duration: 45s !important;
+    }
+
+    /* Simplify scroll progress glow */
+    .scroll-progress {
+        box-shadow: none !important;
+    }
+
+    /* Simplify floating OM button */
+    .floating-om {
+        animation: none !important;
+        box-shadow: 0 4px 12px rgba(201, 168, 76, 0.3) !important;
+    }
+
+    /* Hero logo ring removal (already removed from page but CSS may remain) */
+    .hero-logo-ring {
+        display: none !important;
+    }
+
+    .hero-logo-glow {
+        animation: none !important;
+    }
+
+    /* Reduce glow-text filter */
+    .hero-title .glow-text {
+        filter: none !important;
+    }
+
+    /* Keep reveal animations but make them instant */
+    .reveal {
+        transition-duration: 0.4s !important;
+    }
+
+    /* Simplify chip entrance */
+    .links-scroll .link-chip {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    /* Reduce backdrop-filter usage (expensive on mobile) */
+    .navbar.scrolled {
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+    }
+
+    .links-scroll {
+        backdrop-filter: blur(8px) !important;
+        -webkit-backdrop-filter: blur(8px) !important;
+    }
+
+    .hero-badge {
+        backdrop-filter: blur(8px) !important;
+        -webkit-backdrop-filter: blur(8px) !important;
+    }
+
+    /* Simplify chakra visualization */
+    .chakra-ring {
+        animation-duration: 60s !important;
+    }
+
+    .chakra-center {
+        animation: none !important;
+        box-shadow: 0 0 20px rgba(201, 168, 76, 0.2) !important;
     }
 }
 
+/* Also handle tablets and touch-only devices */
 @media (hover: none) {
 
     .cursor-glow,
     .cursor-dot {
-        display: none;
+        display: none !important;
+    }
+
+    /* Remove hover-dependent animations on touch devices */
+    .blog-card::before,
+    .blog-card::after {
+        display: none !important;
+    }
+
+    .blog-card .blog-card-body {
+        transform: none !important;
+    }
+
+    .blog-card .blog-card-category {
+        transform: none !important;
+    }
+
+    .social-icon:hover {
+        animation: none !important;
+    }
+
+    .nav-logo:hover .logo-text {
+        animation: none !important;
+    }
+}
+
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .particle,
+    .aurora,
+    .cosmic-nebula,
+    .cosmic-shooting-stars,
+    .cosmic-grid,
+    .morph-blob,
+    .energy-wave,
+    .hero-parallax-layer,
+    .hero-mandala {
+        display: none !important;
     }
 }
