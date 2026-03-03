@@ -36,66 +36,66 @@
 /* Topic-specific gradients */
 .blog-hero-bg.meditation::before {
     background:
-        radial-gradient(ellipse at 30% 25%, rgba(123, 47, 247, 0.35) 0%, transparent 55%),
-        radial-gradient(ellipse at 70% 70%, rgba(79, 70, 229, 0.25) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 50%, rgba(201, 168, 76, 0.15) 0%, transparent 60%),
-        linear-gradient(180deg, #0a0a20 0%, #0d0a2e 100%);
+        radial-gradient(ellipse at 30% 25%, rgba(201, 168, 76, 0.15) 0%, transparent 55%),
+        radial-gradient(ellipse at 70% 70%, rgba(180, 155, 70, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(201, 168, 76, 0.1) 0%, transparent 60%),
+        linear-gradient(180deg, #08080a 0%, #0c0c0e 100%);
 }
 
 .blog-hero-bg.third-eye::before {
     background:
-        radial-gradient(ellipse at 50% 30%, rgba(99, 102, 241, 0.4) 0%, transparent 50%),
-        radial-gradient(ellipse at 30% 60%, rgba(139, 92, 246, 0.3) 0%, transparent 55%),
-        radial-gradient(ellipse at 70% 80%, rgba(201, 168, 76, 0.15) 0%, transparent 40%),
-        linear-gradient(180deg, #0a0a25 0%, #12082e 100%);
+        radial-gradient(ellipse at 50% 30%, rgba(201, 168, 76, 0.2) 0%, transparent 50%),
+        radial-gradient(ellipse at 30% 60%, rgba(180, 155, 70, 0.12) 0%, transparent 55%),
+        radial-gradient(ellipse at 70% 80%, rgba(201, 168, 76, 0.1) 0%, transparent 40%),
+        linear-gradient(180deg, #08080a 0%, #0c0b08 100%);
 }
 
 .blog-hero-bg.kundalini::before {
     background:
-        radial-gradient(ellipse at 50% 80%, rgba(225, 29, 112, 0.3) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 30%, rgba(201, 168, 76, 0.35) 0%, transparent 45%),
-        radial-gradient(ellipse at 40% 55%, rgba(123, 47, 247, 0.2) 0%, transparent 50%),
-        linear-gradient(180deg, #0d0d1a 0%, #1a0520 100%);
+        radial-gradient(ellipse at 50% 80%, rgba(180, 100, 60, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 30%, rgba(201, 168, 76, 0.2) 0%, transparent 45%),
+        radial-gradient(ellipse at 40% 55%, rgba(201, 168, 76, 0.1) 0%, transparent 50%),
+        linear-gradient(180deg, #08080a 0%, #0e0c08 100%);
 }
 
 .blog-hero-bg.astral::before {
     background:
-        radial-gradient(ellipse at 40% 35%, rgba(20, 184, 166, 0.3) 0%, transparent 50%),
-        radial-gradient(ellipse at 65% 65%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 90%, rgba(201, 168, 76, 0.15) 0%, transparent 40%),
-        linear-gradient(180deg, #080a1f 0%, #0a1a2a 100%);
+        radial-gradient(ellipse at 40% 35%, rgba(160, 180, 140, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 65% 65%, rgba(201, 168, 76, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 90%, rgba(201, 168, 76, 0.1) 0%, transparent 40%),
+        linear-gradient(180deg, #08080a 0%, #0a0c0a 100%);
 }
 
 .blog-hero-bg.crystals::before {
     background:
-        radial-gradient(ellipse at 35% 40%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
-        radial-gradient(ellipse at 65% 30%, rgba(201, 168, 76, 0.3) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 75%, rgba(225, 29, 112, 0.15) 0%, transparent 45%),
-        linear-gradient(180deg, #0a0a1f 0%, #150a25 100%);
+        radial-gradient(ellipse at 35% 40%, rgba(201, 168, 76, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 65% 30%, rgba(201, 168, 76, 0.18) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 75%, rgba(180, 100, 60, 0.08) 0%, transparent 45%),
+        linear-gradient(180deg, #08080a 0%, #0c0b08 100%);
 }
 
 .blog-hero-bg.mantras::before {
     background:
-        radial-gradient(ellipse at 50% 35%, rgba(201, 168, 76, 0.4) 0%, transparent 50%),
-        radial-gradient(ellipse at 30% 70%, rgba(123, 47, 247, 0.2) 0%, transparent 45%),
-        radial-gradient(ellipse at 70% 60%, rgba(79, 70, 229, 0.2) 0%, transparent 50%),
-        linear-gradient(180deg, #0d0a15 0%, #0a0a1f 100%);
+        radial-gradient(ellipse at 50% 35%, rgba(201, 168, 76, 0.25) 0%, transparent 50%),
+        radial-gradient(ellipse at 30% 70%, rgba(180, 155, 70, 0.1) 0%, transparent 45%),
+        radial-gradient(ellipse at 70% 60%, rgba(201, 168, 76, 0.08) 0%, transparent 50%),
+        linear-gradient(180deg, #08080a 0%, #0c0c0e 100%);
 }
 
 .blog-hero-bg.moon::before {
     background:
-        radial-gradient(ellipse at 60% 25%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
-        radial-gradient(ellipse at 30% 60%, rgba(79, 70, 229, 0.25) 0%, transparent 50%),
-        radial-gradient(ellipse at 70% 80%, rgba(201, 168, 76, 0.2) 0%, transparent 45%),
-        linear-gradient(180deg, #08081a 0%, #0d0a25 100%);
+        radial-gradient(ellipse at 60% 25%, rgba(201, 168, 76, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 30% 60%, rgba(180, 155, 70, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(201, 168, 76, 0.12) 0%, transparent 45%),
+        linear-gradient(180deg, #08080a 0%, #0c0c0e 100%);
 }
 
 .blog-hero-bg.sacred-texts::before {
     background:
-        radial-gradient(ellipse at 40% 30%, rgba(201, 168, 76, 0.35) 0%, transparent 50%),
-        radial-gradient(ellipse at 60% 65%, rgba(123, 47, 247, 0.25) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 85%, rgba(20, 184, 166, 0.12) 0%, transparent 40%),
-        linear-gradient(180deg, #0a0a18 0%, #0d0d1e 100%);
+        radial-gradient(ellipse at 40% 30%, rgba(201, 168, 76, 0.2) 0%, transparent 50%),
+        radial-gradient(ellipse at 60% 65%, rgba(180, 155, 70, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 85%, rgba(160, 180, 140, 0.06) 0%, transparent 40%),
+        linear-gradient(180deg, #08080a 0%, #0c0c0e 100%);
 }
 
 /* Floating sacred geometry in hero */
@@ -126,7 +126,7 @@
     height: 350px;
     bottom: -10%;
     right: -5%;
-    border-color: rgba(123, 47, 247, 0.08);
+    border-color: rgba(201, 168, 76, 0.06);
     border-style: dashed;
     animation: decoRotate 30s linear infinite reverse;
 }
@@ -215,7 +215,7 @@
     font-weight: 900;
     line-height: 1.1;
     margin-bottom: 20px;
-    background: linear-gradient(135deg, #fff 0%, #e8d48b 35%, #fff 55%, #c9a84c 75%, #a855f7 100%);
+    background: linear-gradient(135deg, #fff 0%, #e8d48b 35%, #fff 55%, #c9a84c 75%, #e8d48b 100%);
     background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

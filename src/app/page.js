@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef, useCallback } from "react";
+import Image from "next/image";
 
 /* ─────────────── MOBILE DETECTION ─────────────── */
 
@@ -32,15 +33,35 @@ function LotusIcon({ className, size = 48 }) {
 
 function PlayIcon() {
   return (
-    <svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <polygon points="5,3 19,12 5,21" fill="currentColor" />
+    </svg>
+  );
+}
+
+function SoundOnIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M11 5L6 9H2v6h4l5 4V5z" fill="currentColor" />
+      <path d="M15.54 8.46a5 5 0 010 7.07" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      <path d="M19.07 4.93a10 10 0 010 14.14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function SoundOffIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M11 5L6 9H2v6h4l5 4V5z" fill="currentColor" />
+      <line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      <line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
     </svg>
   );
 }
 
 function ArrowRight() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
@@ -74,12 +95,12 @@ function MandalaIcon() {
 /* ─────────────── DATA ─────────────── */
 
 const BLOGS = [
-  { id: 1, slug: "awakening-kundalini-energy", title: "Awakening the Serpent Within: A Guide to Kundalini Energy", excerpt: "Discover the ancient science of kundalini awakening and how the dormant energy at the base of your spine holds the key to spiritual transcendence.", category: "Kundalini", date: "Feb 20, 2026", readTime: "8 min read", gradient: "kundalini", image: null },
-  { id: 2, slug: "third-eye-activation", title: "Opening the Third Eye: Gateway to Higher Perception", excerpt: "The Ajna chakra, your third eye, is the seat of intuition and inner wisdom. Learn powerful techniques to activate this divine center.", category: "Third Eye", date: "Feb 15, 2026", readTime: "6 min read", gradient: "third-eye", image: null },
-  { id: 3, slug: "astral-projection-guide", title: "The Astral Journey: Traveling Beyond the Physical Realm", excerpt: "Explore the art of astral projection — the ability to consciously separate your soul from the physical body and travel through higher dimensions.", category: "Astral Travel", date: "Feb 10, 2026", readTime: "10 min read", gradient: "soul", image: "/blog-astral.png" },
-  { id: 4, slug: "deep-meditation-techniques", title: "Sacred Silence: Advanced Meditation for Soul Connection", excerpt: "Go beyond ordinary meditation. These ancient Vedic techniques will guide you into the deepest states of consciousness.", category: "Meditation", date: "Feb 5, 2026", readTime: "7 min read", gradient: "meditation", image: null },
-  { id: 5, slug: "chakra-healing-crystals", title: "Crystal Alchemy: Healing Your Seven Sacred Energy Centers", excerpt: "Each chakra resonates with specific crystalline frequencies. Learn to harness the power of sacred stones to balance your energy body.", category: "Chakra Healing", date: "Jan 28, 2026", readTime: "9 min read", gradient: "kundalini", image: null },
-  { id: 6, slug: "soul-purpose-discovery", title: "Discovering Your Soul's Blueprint: Dharma and Destiny", excerpt: "Your soul chose this life for a reason. Uncover the cosmic blueprint of your existence and align with your true dharma.", category: "Soul Purpose", date: "Jan 20, 2026", readTime: "11 min read", gradient: "soul", image: null },
+  { id: 1, slug: "awakening-kundalini-energy", title: "Awakening the Serpent Within: A Guide to Kundalini Energy", excerpt: "Discover the ancient science of kundalini awakening and how the dormant energy at the base of your spine holds the key to spiritual transcendence.", category: "Kundalini", date: "Feb 20, 2026", readTime: "8 min read", gradient: "kundalini", image: "/blog-kundalini.webp" },
+  { id: 2, slug: "third-eye-activation", title: "Opening the Third Eye: Gateway to Higher Perception", excerpt: "The Ajna chakra, your third eye, is the seat of intuition and inner wisdom. Learn powerful techniques to activate this divine center.", category: "Third Eye", date: "Feb 15, 2026", readTime: "6 min read", gradient: "third-eye", image: "/blog-third-eye.webp" },
+  { id: 3, slug: "astral-projection-guide", title: "The Astral Journey: Traveling Beyond the Physical Realm", excerpt: "Explore the art of astral projection — the ability to consciously separate your soul from the physical body and travel through higher dimensions.", category: "Astral Travel", date: "Feb 10, 2026", readTime: "10 min read", gradient: "soul", image: "/blog-astral.webp" },
+  { id: 4, slug: "deep-meditation-techniques", title: "Sacred Silence: Advanced Meditation for Soul Connection", excerpt: "Go beyond ordinary meditation. These ancient Vedic techniques will guide you into the deepest states of consciousness.", category: "Meditation", date: "Feb 5, 2026", readTime: "7 min read", gradient: "meditation", image: "/blog-meditation.webp" },
+  { id: 5, slug: "chakra-healing-crystals", title: "Crystal Alchemy: Healing Your Seven Sacred Energy Centers", excerpt: "Each chakra resonates with specific crystalline frequencies. Learn to harness the power of sacred stones to balance your energy body.", category: "Chakra Healing", date: "Jan 28, 2026", readTime: "9 min read", gradient: "kundalini", image: "/blog-crystals.webp" },
+  { id: 6, slug: "soul-purpose-discovery", title: "Discovering Your Soul's Blueprint: Dharma and Destiny", excerpt: "Your soul chose this life for a reason. Uncover the cosmic blueprint of your existence and align with your true dharma.", category: "Soul Purpose", date: "Jan 20, 2026", readTime: "11 min read", gradient: "soul", image: "/blog-soul-purpose.webp" },
 ];
 
 const QUICK_LINKS = [
@@ -230,7 +251,7 @@ function Navbar() {
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""} ${menuOpen ? "menu-open" : ""}`} id="navbar">
       <div className="nav-container">
-        <a href="#" className="nav-logo">
+        <a href="#home" className="nav-logo">
           <div className="logo-icon"><LotusIcon size={48} /></div>
           <span className="logo-text">SoulKnower</span>
         </a>
@@ -318,12 +339,171 @@ function HeroSection() {
 /* ─────────────── QUICK LINKS ─────────────── */
 
 function QuickLinks() {
+  const scrollRef = useRef(null);
+  const ballRef = useRef(null);
+  const trailCanvasRef = useRef(null);
+  const chipsRef = useRef([]);
+  const animRef = useRef(null);
+  const isMobile = useIsMobile();
+
+  useEffect(() => {
+    if (isMobile) return;
+    const scroll = scrollRef.current;
+    const ball = ballRef.current;
+    const canvas = trailCanvasRef.current;
+    if (!scroll || !ball || !canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let currentIdx = 0;
+    let progress = 0;
+    const JUMP_SPEED = 0.012;
+    const PAUSE_FRAMES = 90;
+    let pauseCounter = 0;
+    let paused = true;
+
+    const trails = [];
+
+    function resize() {
+      const rect = scroll.getBoundingClientRect();
+      canvas.width = rect.width;
+      canvas.height = rect.height;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function getChipTop(idx) {
+      const chip = chipsRef.current[idx];
+      const parent = scroll;
+      if (!chip || !parent) return { x: 0, y: 0 };
+      const cr = chip.getBoundingClientRect();
+      const pr = parent.getBoundingClientRect();
+      return {
+        x: cr.left - pr.left + cr.width / 2,
+        y: cr.top - pr.top + cr.height + 2,
+      };
+    }
+
+    function emitSparks(x, y) {
+      for (let i = 0; i < 6; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const speed = Math.random() * 1.5 + 0.5;
+        trails.push({
+          x, y,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed,
+          life: 1,
+          decay: Math.random() * 0.025 + 0.015,
+          size: Math.random() * 2.5 + 1,
+          type: 'spark',
+        });
+      }
+    }
+
+    function easeInOutCubic(t) {
+      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+
+    function tick() {
+      const chips = chipsRef.current.filter(Boolean);
+      if (chips.length < 2) { animRef.current = requestAnimationFrame(tick); return; }
+
+      const nextIdx = (currentIdx + 1) % chips.length;
+      const from = getChipTop(currentIdx);
+      const to = getChipTop(nextIdx);
+
+      if (paused) {
+        pauseCounter++;
+        ball.style.left = from.x + 'px';
+        ball.style.top = from.y + 'px';
+        if (pauseCounter % 8 === 0) emitSparks(from.x, from.y);
+        if (pauseCounter >= PAUSE_FRAMES) {
+          paused = false;
+          pauseCounter = 0;
+          progress = 0;
+        }
+      } else {
+        progress += JUMP_SPEED;
+        const t = easeInOutCubic(Math.min(progress, 1));
+
+        const midX = (from.x + to.x) / 2;
+        const midY = Math.max(from.y, to.y) + 40;
+        const ix = (1 - t) * (1 - t) * from.x + 2 * (1 - t) * t * midX + t * t * to.x;
+        const iy = (1 - t) * (1 - t) * from.y + 2 * (1 - t) * t * midY + t * t * to.y;
+
+        ball.style.left = ix + 'px';
+        ball.style.top = iy + 'px';
+
+        trails.push({
+          x: ix, y: iy,
+          vx: 0, vy: 0,
+          life: 1,
+          decay: 0.018,
+          size: 3,
+          type: 'trail',
+        });
+
+        if (progress % 0.06 < JUMP_SPEED) emitSparks(ix, iy);
+
+        if (progress >= 1) {
+          currentIdx = nextIdx;
+          paused = true;
+          emitSparks(to.x, to.y);
+        }
+      }
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = trails.length - 1; i >= 0; i--) {
+        const p = trails[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.life -= p.decay;
+        if (p.life <= 0) { trails.splice(i, 1); continue; }
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size * p.life, 0, Math.PI * 2);
+        if (p.type === 'trail') {
+          ctx.fillStyle = `rgba(201,168,76,${p.life * 0.5})`;
+          ctx.shadowColor = 'rgba(201,168,76,0.4)';
+          ctx.shadowBlur = 6;
+        } else {
+          const colors = ['201,168,76', '232,212,139', '245,158,11', '251,146,60'];
+          const c = colors[Math.floor(Math.random() * colors.length)];
+          ctx.fillStyle = `rgba(${c},${p.life * 0.9})`;
+          ctx.shadowColor = `rgba(${c},0.6)`;
+          ctx.shadowBlur = 8;
+        }
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
+
+      animRef.current = requestAnimationFrame(tick);
+    }
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !animRef.current) {
+        animRef.current = requestAnimationFrame(tick);
+      } else if (!entry.isIntersecting && animRef.current) {
+        cancelAnimationFrame(animRef.current);
+        animRef.current = null;
+      }
+    }, { threshold: 0.1 });
+    observer.observe(scroll);
+
+    return () => {
+      if (animRef.current) cancelAnimationFrame(animRef.current);
+      window.removeEventListener('resize', resize);
+      observer.disconnect();
+    };
+  }, [isMobile]);
+
   return (
     <div className="links-bar reveal" id="links">
       <div className="links-container">
-        <div className="links-scroll">
+        <div className="links-scroll" ref={scrollRef}>
+          <canvas ref={trailCanvasRef} className="links-trail-canvas" />
+          <div ref={ballRef} className="links-energy-ball" />
           {QUICK_LINKS.map((link, i) => (
-            <a key={i} href={link.href} className="link-chip">
+            <a key={i} href={link.href} className="link-chip" ref={el => chipsRef.current[i] = el}>
               <span className="link-icon">{link.icon}</span>{link.label}
             </a>
           ))}
@@ -349,6 +529,30 @@ function SacredDivider() {
 /* ─────────────── FEATURED VIDEO ─────────────── */
 
 function FeaturedVideo() {
+  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
+
+  const togglePlay = useCallback(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      video.play();
+      setIsPlaying(true);
+    } else {
+      video.pause();
+      setIsPlaying(false);
+    }
+  }, []);
+
+  const toggleMute = useCallback((e) => {
+    e.stopPropagation();
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = !video.muted;
+    setIsMuted(video.muted);
+  }, []);
+
   return (
     <section className="featured-video reveal" id="videos">
       <div className="section-container">
@@ -361,8 +565,23 @@ function FeaturedVideo() {
       </div>
       <div className="video-showcase">
         <div className="video-frame">
-          <div className="video-placeholder">
-            <button className="play-button" aria-label="Play video"><PlayIcon /></button>
+          <div className="video-placeholder" onClick={togglePlay} style={{ cursor: 'pointer' }}>
+            <video
+              ref={videoRef}
+              src="/INTRO_SOULKNOWER.mp4"
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster="/blog-astral.webp"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', borderRadius: 'inherit' }}
+            />
+            <div className={`play-button-overlay ${isPlaying ? 'hidden' : ''}`}>
+              <button className="play-button" aria-label="Play video"><PlayIcon /></button>
+            </div>
+            <button className="sound-toggle" onClick={toggleMute} aria-label={isMuted ? 'Unmute' : 'Mute'}>
+              {isMuted ? <SoundOffIcon /> : <SoundOnIcon />}
+            </button>
             <span className="video-label">Latest: The Power of Sacred Mantras</span>
           </div>
         </div>
@@ -396,16 +615,16 @@ function BlogCard({ blog, delay }) {
   }, []);
 
   return (
-    <a href={`#blog-${blog.slug}`} className={`blog-card reveal reveal-delay-${delay}`}
+    <a href={`/blog/${blog.slug}`} className={`blog-card reveal reveal-delay-${delay}`}
       ref={cardRef} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
       <div className="blog-card-image">
-        {blog.image ? <img src={blog.image} alt={blog.title} loading="lazy" /> : <div className={`gradient-bg ${blog.gradient}`} />}
+        {blog.image ? <Image src={blog.image} alt={blog.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" /> : <div className={`gradient-bg ${blog.gradient}`} />}
         <div className="blog-card-overlay" />
         <span className="blog-card-category">{blog.category}</span>
       </div>
       <div className="blog-card-body">
         <span className="blog-card-date">{blog.date}</span>
-        <h3 className="blog-card-title">{blog.title}</h3>
+        <h3 className="blog-card-title ray-title">{blog.title}</h3>
         <p className="blog-card-excerpt">{blog.excerpt}</p>
         <div className="blog-card-footer">
           <span className="read-more">Read More <ArrowRight /></span>
@@ -477,8 +696,22 @@ function AboutSection() {
             <div className="morph-blob" style={{ top: '20%', left: '10%' }} />
             <div className="morph-blob" style={{ top: '60%', left: '50%', animationDelay: '-7s' }} />
             <div className="chakra-visualization">
-              <div className="chakra-ring" /><div className="chakra-ring" />
-              <div className="chakra-ring" /><div className="chakra-ring" />
+              <div className="chakra-ring">
+                <span className="orbit-dot dot-gold" style={{ top: 0, left: '50%' }} />
+                <span className="orbit-dot dot-amber" style={{ bottom: 0, left: '50%' }} />
+              </div>
+              <div className="chakra-ring">
+                <span className="orbit-dot dot-rose" style={{ top: '50%', right: 0 }} />
+                <span className="orbit-dot dot-teal" style={{ top: '50%', left: 0 }} />
+              </div>
+              <div className="chakra-ring">
+                <span className="orbit-dot dot-blue" style={{ top: 0, left: '50%' }} />
+                <span className="orbit-dot dot-peach" style={{ bottom: 0, right: '15%' }} />
+              </div>
+              <div className="chakra-ring">
+                <span className="orbit-dot dot-violet" style={{ top: '50%', right: 0 }} />
+                <span className="orbit-dot dot-lime" style={{ bottom: 0, left: '50%' }} />
+              </div>
               <div className="chakra-center"><LotusIcon size={50} /></div>
             </div>
           </div>
@@ -488,8 +721,8 @@ function AboutSection() {
             <p className="about-text">SoulKnower is a sacred digital space dedicated to spiritual awakening and the exploration of higher consciousness. Through ancient Vedic wisdom, meditation practices, and energy healing techniques, we guide seekers on their journey inward.</p>
             <p className="about-text">Our channel is a beacon for those who feel the call of the soul — a deep, inner knowing that there is more to existence than the material world. Here, we honor the eternal quest for self-realization.</p>
             <div className="soul-stats">
-              <div className="stat-card"><AnimatedCounter target="108" suffix="+" /><span className="stat-label">Videos</span></div>
-              <div className="stat-card"><AnimatedCounter target="50" suffix="K+" /><span className="stat-label">Seekers</span></div>
+              <div className="stat-card"><AnimatedCounter target="50" suffix="+" /><span className="stat-label">Videos</span></div>
+              <div className="stat-card"><AnimatedCounter target="5" suffix="K+" /><span className="stat-label">Seekers</span></div>
               <div className="stat-card"><AnimatedCounter target="7" suffix="" /><span className="stat-label">Chakras</span></div>
             </div>
           </div>
@@ -523,6 +756,7 @@ function NewsletterSection() {
           <h3 className="newsletter-title">Receive Sacred Transmissions</h3>
           <p className="newsletter-desc">Join our spiritual community and receive weekly wisdom, guided meditations, and exclusive soul insights</p>
           <form className="newsletter-form" onSubmit={handleSubmit}>
+            <label htmlFor="newsletter-email" className="sr-only">Email address</label>
             <input type="email" placeholder="Enter your sacred email..." value={email} onChange={e => setEmail(e.target.value)} required id="newsletter-email" />
             <button type="submit" id="newsletter-submit" ref={btnRef}>{submitted ? "✦ Blessed ✦" : "Awaken"}</button>
           </form>
