@@ -717,6 +717,10 @@ function NewsletterSection() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Something went wrong");
+      if (data.message === "Already subscribed") {
+        setError("Already subscribed");
+        return;
+      }
       setSubmitted(true);
       setEmail("");
       btnRef.current?.classList.add("success");
@@ -741,7 +745,15 @@ function NewsletterSection() {
             <input type="text" name="website" tabIndex={-1} autoComplete="off" value={website} onChange={e => setWebsite(e.target.value)} className="hp" aria-hidden />
             <label htmlFor="newsletter-email" className="sr-only">Email address</label>
             <input type="email" placeholder="Enter your sacred email..." value={email} onChange={e => { setEmail(e.target.value); setError(""); }} required id="newsletter-email" disabled={loading} />
-            <button type="submit" id="newsletter-submit" ref={btnRef} disabled={loading}>{submitted ? "✦ Blessed ✦" : loading ? "..." : "Awaken"}</button>
+            <button type="submit" id="newsletter-submit" ref={btnRef} disabled={loading}>
+              {submitted ? "✦ Blessed ✦" : loading ? (
+                <span className="btn-loader">
+                  <span className="btn-loader-dot" />
+                  <span className="btn-loader-dot" />
+                  <span className="btn-loader-dot" />
+                </span>
+              ) : "Awaken"}
+            </button>
             {error && <p className="newsletter-error">{error}</p>}
           </form>
         </div>
