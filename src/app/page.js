@@ -698,16 +698,36 @@ function AboutSection() {
 
 function NewsletterSection() {
   const [email, setEmail] = useState("");
+  const [website, setWebsite] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const btnRef = useRef(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (email) {
+    if (!email?.trim() || loading) return;
+    setError("");
+    setLoading(true);
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.trim(), website }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Something went wrong");
       setSubmitted(true);
       setEmail("");
-      btnRef.current?.classList.add('success');
-      setTimeout(() => { setSubmitted(false); btnRef.current?.classList.remove('success'); }, 3000);
+      btnRef.current?.classList.add("success");
+      setTimeout(() => {
+        setSubmitted(false);
+        btnRef.current?.classList.remove("success");
+      }, 3000);
+    } catch (err) {
+      setError(err.message || "Failed to subscribe");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -718,9 +738,11 @@ function NewsletterSection() {
           <h3 className="newsletter-title">Receive Sacred Transmissions</h3>
           <p className="newsletter-desc">Join our spiritual community and receive weekly wisdom, guided meditations, and exclusive soul insights</p>
           <form className="newsletter-form" onSubmit={handleSubmit}>
+            <input type="text" name="website" tabIndex={-1} autoComplete="off" value={website} onChange={e => setWebsite(e.target.value)} className="hp" aria-hidden />
             <label htmlFor="newsletter-email" className="sr-only">Email address</label>
-            <input type="email" placeholder="Enter your sacred email..." value={email} onChange={e => setEmail(e.target.value)} required id="newsletter-email" />
-            <button type="submit" id="newsletter-submit" ref={btnRef}>{submitted ? "✦ Blessed ✦" : "Awaken"}</button>
+            <input type="email" placeholder="Enter your sacred email..." value={email} onChange={e => { setEmail(e.target.value); setError(""); }} required id="newsletter-email" disabled={loading} />
+            <button type="submit" id="newsletter-submit" ref={btnRef} disabled={loading}>{submitted ? "✦ Blessed ✦" : loading ? "..." : "Awaken"}</button>
+            {error && <p className="newsletter-error">{error}</p>}
           </form>
         </div>
       </div>
