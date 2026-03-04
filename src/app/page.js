@@ -2,6 +2,8 @@
 
 import { useEffect, useState, useRef, useCallback } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import BlogCard from "@/components/BlogCard";
 
 /* ─────────────── MOBILE DETECTION ─────────────── */
 
@@ -95,12 +97,12 @@ function MandalaIcon() {
 /* ─────────────── DATA ─────────────── */
 
 const BLOGS = [
-  { id: 1, slug: "awakening-kundalini-energy", title: "Awakening the Serpent Within: A Guide to Kundalini Energy", excerpt: "Discover the ancient science of kundalini awakening and how the dormant energy at the base of your spine holds the key to spiritual transcendence.", category: "Kundalini", date: "Feb 20, 2026", readTime: "8 min read", gradient: "kundalini", image: "/blog-kundalini.webp" },
-  { id: 2, slug: "third-eye-activation", title: "Opening the Third Eye: Gateway to Higher Perception", excerpt: "The Ajna chakra, your third eye, is the seat of intuition and inner wisdom. Learn powerful techniques to activate this divine center.", category: "Third Eye", date: "Feb 15, 2026", readTime: "6 min read", gradient: "third-eye", image: "/blog-third-eye.webp" },
-  { id: 3, slug: "astral-projection-guide", title: "The Astral Journey: Traveling Beyond the Physical Realm", excerpt: "Explore the art of astral projection — the ability to consciously separate your soul from the physical body and travel through higher dimensions.", category: "Astral Travel", date: "Feb 10, 2026", readTime: "10 min read", gradient: "soul", image: "/blog-astral.webp" },
-  { id: 4, slug: "deep-meditation-techniques", title: "Sacred Silence: Advanced Meditation for Soul Connection", excerpt: "Go beyond ordinary meditation. These ancient Vedic techniques will guide you into the deepest states of consciousness.", category: "Meditation", date: "Feb 5, 2026", readTime: "7 min read", gradient: "meditation", image: "/blog-meditation.webp" },
-  { id: 5, slug: "chakra-healing-crystals", title: "Crystal Alchemy: Healing Your Seven Sacred Energy Centers", excerpt: "Each chakra resonates with specific crystalline frequencies. Learn to harness the power of sacred stones to balance your energy body.", category: "Chakra Healing", date: "Jan 28, 2026", readTime: "9 min read", gradient: "kundalini", image: "/blog-crystals.webp" },
-  { id: 6, slug: "soul-purpose-discovery", title: "Discovering Your Soul's Blueprint: Dharma and Destiny", excerpt: "Your soul chose this life for a reason. Uncover the cosmic blueprint of your existence and align with your true dharma.", category: "Soul Purpose", date: "Jan 20, 2026", readTime: "11 min read", gradient: "soul", image: "/blog-soul-purpose.webp" },
+  { id: 1, slug: "kundalini", title: "Awakening the Serpent Within: A Guide to Kundalini Energy", excerpt: "Discover the ancient science of kundalini awakening and how the dormant energy at the base of your spine holds the key to spiritual transcendence.", category: "Kundalini", date: "Feb 20, 2026", readTime: "8 min read", gradient: "kundalini", image: "/blog-kundalini.webp" },
+  { id: 2, slug: "third-eye", title: "Opening the Third Eye: Gateway to Higher Perception", excerpt: "The Ajna chakra, your third eye, is the seat of intuition and inner wisdom. Learn powerful techniques to activate this divine center.", category: "Third Eye", date: "Feb 15, 2026", readTime: "6 min read", gradient: "third-eye", image: "/blog-third-eye.webp" },
+  { id: 3, slug: "astral-travel", title: "The Astral Journey: Traveling Beyond the Physical Realm", excerpt: "Explore the art of astral projection — the ability to consciously separate your soul from the physical body and travel through higher dimensions.", category: "Astral Travel", date: "Feb 10, 2026", readTime: "10 min read", gradient: "soul", image: "/blog-astral.webp" },
+  { id: 4, slug: "meditation", title: "Sacred Silence: Advanced Meditation for Soul Connection", excerpt: "Go beyond ordinary meditation. These ancient Vedic techniques will guide you into the deepest states of consciousness.", category: "Meditation", date: "Feb 5, 2026", readTime: "7 min read", gradient: "meditation", image: "/blog-meditation.webp" },
+  { id: 5, slug: "crystals", title: "Crystal Alchemy: Healing Your Seven Sacred Energy Centers", excerpt: "Each chakra resonates with specific crystalline frequencies. Learn to harness the power of sacred stones to balance your energy body.", category: "Chakra Healing", date: "Jan 28, 2026", readTime: "9 min read", gradient: "kundalini", image: "/blog-crystals.webp" },
+  { id: 6, slug: "soul-purpose", title: "Discovering Your Soul's Blueprint: Dharma and Destiny", excerpt: "Your soul chose this life for a reason. Uncover the cosmic blueprint of your existence and align with your true dharma.", category: "Soul Purpose", date: "Jan 20, 2026", readTime: "11 min read", gradient: "soul", image: "/blog-soul-purpose.webp" },
 ];
 
 const QUICK_LINKS = [
@@ -258,8 +260,8 @@ function Navbar() {
         <ul className={`nav-links ${menuOpen ? "mobile-active" : ""}`}>
           <li><a href="#home" className="nav-link" onClick={() => setMenuOpen(false)}>Home</a></li>
           <li><a href="#about" className="nav-link" onClick={() => setMenuOpen(false)}>About</a></li>
-          <li><a href="#blogs" className="nav-link" onClick={() => setMenuOpen(false)}>Blogs</a></li>
-          <li><a href="#videos" className="nav-link" onClick={() => setMenuOpen(false)}>Videos</a></li>
+          <li><Link href="/blogs" className="nav-link" onClick={() => setMenuOpen(false)}>Blogs</Link></li>
+          <li><Link href="/videos" className="nav-link" onClick={() => setMenuOpen(false)}>Videos</Link></li>
           <li><a href="https://www.youtube.com/@SoulKnower" target="_blank" rel="noopener noreferrer" className="nav-cta">Subscribe ✦</a></li>
         </ul>
         <button
@@ -329,7 +331,7 @@ function HeroSection() {
           <a href="https://www.youtube.com/@SoulKnower" target="_blank" rel="noopener noreferrer" className="btn-primary magnetic-btn">
             <span>▶</span> Watch Videos
           </a>
-          <a href="#blogs" className="btn-secondary magnetic-btn">Read Blogs <ArrowRight /></a>
+          <Link href="/blogs" className="btn-secondary magnetic-btn">Read Blogs <ArrowRight /></Link>
         </div>
       </div>
     </section>
@@ -573,11 +575,11 @@ function FeaturedVideo() {
               loop
               playsInline
               preload="metadata"
-              poster="/blog-astral.webp"
-              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', borderRadius: 'inherit' }}
+              poster="/vi.png"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', borderRadius: 'inherit', pointerEvents: 'none' }}
             />
             <div className={`play-button-overlay ${isPlaying ? 'hidden' : ''}`}>
-              <button className="play-button" aria-label="Play video"><PlayIcon /></button>
+              <button type="button" className="play-button" aria-label="Play video"><PlayIcon /></button>
             </div>
             <button className="sound-toggle" onClick={toggleMute} aria-label={isMuted ? 'Unmute' : 'Mute'}>
               {isMuted ? <SoundOffIcon /> : <SoundOnIcon />}
@@ -587,51 +589,6 @@ function FeaturedVideo() {
         </div>
       </div>
     </section>
-  );
-}
-
-/* ─────────────── BLOG CARD WITH 3D TILT ─────────────── */
-
-function BlogCard({ blog, delay }) {
-  const cardRef = useRef(null);
-
-  const handleMouseMove = useCallback((e) => {
-    const card = cardRef.current;
-    if (!card) return;
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const rotateX = ((y - centerY) / centerY) * -6;
-    const rotateY = ((x - centerX) / centerX) * 6;
-    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
-  }, []);
-
-  const handleMouseLeave = useCallback(() => {
-    if (cardRef.current) {
-      cardRef.current.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
-    }
-  }, []);
-
-  return (
-    <a href={`/blog/${blog.slug}`} className={`blog-card reveal reveal-delay-${delay}`}
-      ref={cardRef} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
-      <div className="blog-card-image">
-        {blog.image ? <Image src={blog.image} alt={blog.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" /> : <div className={`gradient-bg ${blog.gradient}`} />}
-        <div className="blog-card-overlay" />
-        <span className="blog-card-category">{blog.category}</span>
-      </div>
-      <div className="blog-card-body">
-        <span className="blog-card-date">{blog.date}</span>
-        <h3 className="blog-card-title ray-title">{blog.title}</h3>
-        <p className="blog-card-excerpt">{blog.excerpt}</p>
-        <div className="blog-card-footer">
-          <span className="read-more">Read More <ArrowRight /></span>
-          <span className="read-time">{blog.readTime}</span>
-        </div>
-      </div>
-    </a>
   );
 }
 
@@ -648,7 +605,12 @@ function BlogsSection() {
           <p className="section-description">Dive deep into ancient wisdom, energy healing, and the mysteries of consciousness</p>
         </div>
         <div className="blogs-grid">
-          {BLOGS.map((blog, i) => <BlogCard key={blog.id} blog={blog} delay={(i % 4) + 1} />)}
+          {BLOGS.slice(0, 3).map((blog, i) => <BlogCard key={blog.id} blog={blog} delay={(i % 4) + 1} />)}
+        </div>
+        <div className="blogs-view-all-wrap">
+          <Link href="/blogs" className="btn-primary magnetic-btn btn-view-all">
+            View All Blogs <ArrowRight />
+          </Link>
         </div>
       </div>
     </section>
@@ -766,9 +728,119 @@ function NewsletterSection() {
   );
 }
 
+/* ─────────────── LEGAL MODAL (DISCLAIMER / TERMS) ─────────────── */
+
+function TypewriterText({ text, speed = 25 }) {
+  const [display, setDisplay] = useState("");
+  const [done, setDone] = useState(false);
+
+  useEffect(() => {
+    if (!text) return;
+    setDisplay("");
+    setDone(false);
+    let i = 0;
+    const timer = setInterval(() => {
+      if (i < text.length) {
+        setDisplay(text.slice(0, i + 1));
+        i++;
+      } else {
+        setDone(true);
+        clearInterval(timer);
+      }
+    }, speed);
+    return () => clearInterval(timer);
+  }, [text, speed]);
+
+  return (
+    <p>
+      {display}
+      {!done && <span className="typewriter-cursor" />}
+    </p>
+  );
+}
+
+function LegalModal({ isOpen, onClose, title, content }) {
+  useEffect(() => {
+    const handleEsc = (e) => { if (e.key === "Escape") onClose(); };
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+      window.addEventListener("keydown", handleEsc);
+    }
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleEsc);
+    };
+  }, [isOpen, onClose]);
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="legal-modal-backdrop" onClick={onClose} role="dialog" aria-modal="true" aria-label={title}>
+      <div className="legal-modal" onClick={e => e.stopPropagation()}>
+        <div className="legal-modal-header">
+          <h3 className="legal-modal-title">{title}</h3>
+          <button type="button" className="legal-modal-close" onClick={onClose} aria-label="Close">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+              <path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+        </div>
+        <div className="legal-modal-body">
+          <TypewriterText text={content} speed={20} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const DISCLAIMER_TEXT = "We are not here to harm any religion or any rituals. We exist solely to help make your life better through mindfulness, meditation, and spiritual wisdom. Our content is intended for personal growth and inner peace. We honor all faiths and traditions with respect. ✦";
+
+const TERMS_TEXT = "By using SoulKnower, you agree that our content is for informational and inspirational purposes only. It is not a substitute for professional medical, psychological, or religious advice. Practice at your own pace and consult qualified practitioners when needed. We are dedicated to supporting your journey with love and light. ✦";
+
+const COMMUNITY_URL = "https://www.youtube.com/@SoulKnower/community";
+
+function CommunityPopup({ isOpen, onClose }) {
+  useEffect(() => {
+    const handleEsc = (e) => { if (e.key === "Escape") onClose(); };
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+      window.addEventListener("keydown", handleEsc);
+    }
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleEsc);
+    };
+  }, [isOpen, onClose]);
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="legal-modal-backdrop" onClick={onClose} role="dialog" aria-modal="true" aria-label="Join Community">
+      <div className="legal-modal community-popup" onClick={e => e.stopPropagation()}>
+        <div className="legal-modal-header">
+          <h3 className="legal-modal-title">Join Our Community</h3>
+          <button type="button" className="legal-modal-close" onClick={onClose} aria-label="Close">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+              <path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+        </div>
+        <div className="legal-modal-body community-popup-body">
+          <p>Connect with fellow seekers on our YouTube Community. Share your journey, get inspired, and grow together in consciousness. ✦</p>
+          <a href={COMMUNITY_URL} target="_blank" rel="noopener noreferrer" className="community-popup-cta btn-primary">
+            Join on YouTube Community
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ─────────────── FOOTER ─────────────── */
 
 function Footer() {
+  const [openModal, setOpenModal] = useState(null);
+
   return (
     <footer className="footer" id="footer">
       <div className="footer-container">
@@ -786,8 +858,8 @@ function Footer() {
           <div>
             <h4 className="footer-col-title">Explore</h4>
             <ul className="footer-links">
-              <li><a href="#blogs">Blog Posts</a></li>
-              <li><a href="#videos">Video Teachings</a></li>
+              <li><Link href="/blogs">Blog Posts</Link></li>
+              <li><Link href="/videos">Video Teachings</Link></li>
               <li><a href="#about">Our Journey</a></li>
               <li><a href="#newsletter">Newsletter</a></li>
             </ul>
@@ -795,29 +867,33 @@ function Footer() {
           <div>
             <h4 className="footer-col-title">Topics</h4>
             <ul className="footer-links">
-              <li><a href="#blogs">Meditation</a></li>
-              <li><a href="#blogs">Chakra Healing</a></li>
-              <li><a href="#blogs">Kundalini</a></li>
-              <li><a href="#blogs">Astral Travel</a></li>
+              <li><Link href="/blogs">Meditation</Link></li>
+              <li><Link href="/blogs">Chakra Healing</Link></li>
+              <li><Link href="/blogs">Kundalini</Link></li>
+              <li><Link href="/blogs">Astral Travel</Link></li>
             </ul>
           </div>
           <div>
             <h4 className="footer-col-title">Connect</h4>
             <ul className="footer-links">
               <li><a href="https://www.youtube.com/@SoulKnower" target="_blank" rel="noopener noreferrer">YouTube Channel</a></li>
-              <li><a href="#">Community</a></li>
+              <li><button type="button" className="footer-link-as-btn" onClick={() => setOpenModal("community")}>Community</button></li>
               <li><a href="#">Collaborate</a></li>
-              <li><a href="mailto:hello@soulknower.com">Contact</a></li>
+              <li><a href="mailto:contact@soulknower.com">Contact</a></li>
             </ul>
           </div>
         </div>
         <div className="footer-bottom">
           <p>© 2026 SoulKnower. All vibrations reserved. ✦</p>
           <div className="footer-bottom-links">
-            <a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a>
+            <button type="button" className="footer-legal-link" onClick={() => setOpenModal("disclaimer")}>Disclaimer</button>
+            <button type="button" className="footer-legal-link" onClick={() => setOpenModal("terms")}>Terms</button>
           </div>
         </div>
       </div>
+      <LegalModal isOpen={openModal === "disclaimer"} onClose={() => setOpenModal(null)} title="Disclaimer" content={DISCLAIMER_TEXT} />
+      <LegalModal isOpen={openModal === "terms"} onClose={() => setOpenModal(null)} title="Terms of Use" content={TERMS_TEXT} />
+      <CommunityPopup isOpen={openModal === "community"} onClose={() => setOpenModal(null)} />
     </footer>
   );
 }
