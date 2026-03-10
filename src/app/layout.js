@@ -36,9 +36,14 @@ const outfit = Outfit({
   display: "swap",
 });
 
+const SITE_URL = "https://soulknower.com";
+
 export const metadata = {
-  metadataBase: new URL("https://soulknower.com"),
-  title: "SoulKnower — Awaken Your Inner Universe",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "SoulKnower — Awaken Your Inner Universe",
+    template: "%s | SoulKnower",
+  },
   description:
     "Explore meditation, chakra healing, kundalini awakening, and spiritual growth with SoulKnower. Your guide to higher consciousness and inner peace.",
   keywords: [
@@ -50,20 +55,52 @@ export const metadata = {
     "consciousness",
     "third eye",
     "spiritual awakening",
+    "astral projection",
+    "energy healing",
   ],
+  authors: [{ name: "SoulKnower", url: SITE_URL }],
+  creator: "SoulKnower",
+  publisher: "SoulKnower",
+  formatDetection: { email: false, address: false, telephone: false },
   icons: {
     icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/logo_wb.png", type: "image/png", sizes: "48x48" },
       { url: "/favicon.ico", sizes: "32x32" },
     ],
   },
   openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: SITE_URL,
+    siteName: "SoulKnower",
     title: "SoulKnower — Awaken Your Inner Universe",
     description:
-      "Explore meditation, chakra healing, kundalini awakening, and spiritual growth.",
-    type: "website",
-    images: [{ url: "/blog-astral.webp", width: 1200, height: 630 }],
+      "Explore meditation, chakra healing, kundalini awakening, and spiritual growth. Your guide to higher consciousness.",
+    images: [
+      { url: "/blog-astral.webp", width: 1200, height: 630, alt: "SoulKnower — Spiritual awakening and consciousness" },
+    ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "SoulKnower — Awaken Your Inner Universe",
+    description: "Explore meditation, chakra healing, kundalini awakening, and spiritual growth.",
+    images: ["/blog-astral.webp"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
+  alternates: { canonical: SITE_URL },
+};
+
+const WEB_SITE_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "SoulKnower",
+  url: SITE_URL,
+  description: "Explore meditation, chakra healing, kundalini awakening, and spiritual growth. Your guide to higher consciousness.",
+  publisher: { "@type": "Organization", name: "SoulKnower", url: SITE_URL, logo: { "@type": "ImageObject", url: `${SITE_URL}/logo_wb.png` } },
 };
 
 export default function RootLayout({ children }) {
@@ -72,7 +109,10 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${cinzel.variable} ${cormorant.variable} ${inter.variable} ${outfit.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(WEB_SITE_JSON_LD) }} />
+        {children}
+      </body>
     </html>
   );
 }

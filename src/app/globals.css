@@ -446,6 +446,13 @@ body {
   filter: drop-shadow(var(--glow-md) var(--accent-gold-glow));
 }
 
+.logo-icon-img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  filter: drop-shadow(var(--glow-md) var(--accent-gold-glow));
+}
+
 .logo-text {
   font-family: var(--font-display);
   font-size: 1.6rem;

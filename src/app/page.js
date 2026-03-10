@@ -254,7 +254,7 @@ function Navbar() {
     <nav className={`navbar ${scrolled ? "scrolled" : ""} ${menuOpen ? "menu-open" : ""}`} id="navbar">
       <div className="nav-container">
         <a href="#home" className="nav-logo">
-          <div className="logo-icon"><LotusIcon size={48} /></div>
+          <Image src="/logo_wb.png" alt="SoulKnower" width={48} height={48} className="logo-icon-img" priority />
           <span className="logo-text">SoulKnower</span>
         </a>
         <ul className={`nav-links ${menuOpen ? "mobile-active" : ""}`}>
@@ -594,7 +594,8 @@ function FeaturedVideo() {
 
 /* ─────────────── BLOGS SECTION ─────────────── */
 
-function BlogsSection() {
+function BlogsSection({ blogs = BLOGS }) {
+  const displayBlogs = Array.isArray(blogs) && blogs.length > 0 ? blogs.slice(0, 3) : BLOGS.slice(0, 3);
   return (
     <section className="section" id="blogs">
       <div className="section-container">
@@ -605,7 +606,7 @@ function BlogsSection() {
           <p className="section-description">Dive deep into ancient wisdom, energy healing, and the mysteries of consciousness</p>
         </div>
         <div className="blogs-grid">
-          {BLOGS.slice(0, 3).map((blog, i) => <BlogCard key={blog.id} blog={blog} delay={(i % 4) + 1} />)}
+          {displayBlogs.map((blog, i) => <BlogCard key={blog.slug || blog.id} blog={{ ...blog, id: blog.id || i + 1 }} delay={(i % 4) + 1} />)}
         </div>
         <div className="blogs-view-all-wrap">
           <Link href="/blogs" className="btn-primary magnetic-btn btn-view-all">
@@ -973,7 +974,17 @@ function useMagneticButtons() {
 
 export default function Home() {
   const isMobile = useIsMobile();
+  const [blogs, setBlogs] = useState(BLOGS);
   useMagneticButtons();
+
+  useEffect(() => {
+    fetch("/api/blogs")
+      .then((r) => r.json())
+      .then((data) => {
+        if (data?.posts?.length > 0) setBlogs(data.posts);
+      })
+      .catch(() => {});
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -1021,7 +1032,7 @@ export default function Home() {
         <SacredDivider />
         <FeaturedVideo />
         <SacredDivider />
-        <BlogsSection />
+        <BlogsSection blogs={blogs} />
         <SacredDivider />
         <AboutSection />
         <MantraTicker />

@@ -1,5 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    remotePatterns: [
+      { protocol: "https", hostname: "cdn.sanity.io", pathname: "/images/**" },
+    ],
+    // Fix: "resolved to private ip" when CDN resolves via IPv6 NAT64 on some networks
+    dangerouslyAllowLocalIP: true,
+  },
   async redirects() {
     return [
       { source: "/blog/awakening-kundalini-energy", destination: "/blog/kundalini", permanent: true },

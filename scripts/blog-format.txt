@@ -1,0 +1,50 @@
+# SoulKnower Blog TXT Format
+# Write or generate content in this format, then run: node scripts/upload-blog-from-txt.js path/to/your-post.txt
+# Images: upload manually in Sanity Studio after the post is created.
+
+---
+title: Your Post Title Here
+slug: your-post-slug
+excerpt: 2-3 sentence summary for the card. This appears on the blog listing.
+category: Meditation
+date: Feb 5, 2026
+readTime: 12 min read
+icon: 🧘
+heroBg: meditation
+gradient: meditation
+---
+
+## Section Heading (h2)
+
+Paragraph text. Blank lines separate paragraphs.
+
+Another paragraph here.
+
+## Another Section
+
+More content. Use **bold** and *italic* in text.
+
+> Quote text goes here. Use > at the start of each line.
+> — Author or Source
+
+::callout icon=💡 title=Key Insight
+Callout content. Important tip or insight. Can span multiple lines until ::end
+::end
+
+::divider::
+
+## Next Section
+
+- Bullet list item one
+- Bullet list item two
+
+1. Numbered item one
+2. Numbered item two
+
+---
+END OF FORMAT GUIDE
+---
+
+Categories: Meditation, Third Eye, Kundalini, Astral Travel, Chakra Healing, Soul Purpose, Mantras, Moon Rituals, Sacred Texts, Spiritual
+heroBg: meditation, third-eye, kundalini, astral, crystals, mantras, moon, sacred-texts
+gradient: meditation, third-eye, kundalini, soul

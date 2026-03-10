@@ -43,7 +43,13 @@ export default function BlogCard({ blog, delay = 1 }) {
     >
       <div className="blog-card-image">
         {blog.image ? (
-          <Image src={blog.image} alt={blog.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+          <Image
+            src={blog.image}
+            alt={blog.title}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            unoptimized={typeof blog.image === "string" && blog.image.startsWith("http")}
+          />
         ) : (
           <div className={`gradient-bg ${blog.gradient}`} />
         )}
