@@ -4,6 +4,9 @@ import { BLOG_POSTS, getPostBySlug as getStaticPost, SLUG_TO_OLD } from "@/data/
 import BlogLayout from "../content/BlogLayout";
 import PortableTextRenderer from "@/components/PortableTextRenderer";
 
+export const revalidate = 60; // Re-fetch from Sanity every 60 seconds
+export const dynamicParams = true; // Allow new slugs not in generateStaticParams
+
 // Static content components (fallback when Sanity has no data)
 import MeditationContent from "../content/meditation";
 import ThirdEyeContent from "../content/third-eye";

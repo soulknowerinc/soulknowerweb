@@ -1,6 +1,8 @@
 import { getBlogPosts } from "@/lib/blog-source";
 import BlogsPageClient from "@/components/BlogsPageClient";
 
+export const revalidate = 60; // Re-fetch from Sanity every 60 seconds
+
 export const metadata = {
   title: "Sacred Manuscript — Spiritual Writings",
   description:
