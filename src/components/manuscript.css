@@ -440,7 +440,7 @@
 /* ---- DESKTOP: Horizontal layout (image | text) ---- */
 @media (min-width: 769px) {
   .ms-book {
-    max-width: 860px;
+    max-width: 1060px;
   }
 
   .ms-page {
@@ -456,18 +456,24 @@
   .ms-card-row {
     flex-direction: row;
     align-items: stretch;
-    gap: 32px;
+    gap: 36px;
     text-align: left;
   }
 
   .ms-cover {
-    width: 280px;
-    min-width: 280px;
-    max-width: none;
+    flex: 0 0 40%;
+    width: 40%;
+    min-width: 240px;
+    max-width: 420px;
     height: auto;
-    min-height: 240px;
+    aspect-ratio: 16 / 10;
     margin-bottom: 0;
     align-self: center;
+  }
+
+  .ms-cover img {
+    object-fit: contain !important;
+    object-position: center;
   }
 
   .ms-card-text {

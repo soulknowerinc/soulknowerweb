@@ -76,7 +76,7 @@ export default function ManuscriptBookView({ posts }) {
                 {/* Cover image */}
                 {blog.image && (
                   <div className="ms-cover">
-                    <Image src={blog.image} alt={blog.title} fill sizes="(max-width:768px) 90vw, 280px" unoptimized={ext} />
+                    <Image src={blog.image} alt={blog.title} fill sizes="(max-width:768px) 90vw, 420px" unoptimized={ext} />
                     <div className="ms-cover-frame" />
                   </div>
                 )}
