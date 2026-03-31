@@ -7,12 +7,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "upload:blog": "node scripts/upload-blog-from-txt.js"
+    "upload:blog": "node scripts/upload-blog-from-txt.js",
+    "seed:exam": "node scripts/seed-exam-data.js"
   },
   "dependencies": {
     "@portabletext/react": "^3.0.0",
     "@sanity/client": "^6.22.0",
     "@sanity/image-url": "^1.0.2",
+    "firebase": "^12.11.0",
     "firebase-admin": "^13.7.0",
     "next": "16.1.6",
     "next-sanity": "^9.4.5",
