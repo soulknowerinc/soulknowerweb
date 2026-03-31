@@ -362,15 +362,23 @@ const IMAGE_EXTS = [".jpg", ".jpeg", ".png", ".webp", ".bmp", ".tiff"];
 
 function listImages(imgDir) {
   if (!fs.existsSync(imgDir)) return [];
-  return fs.readdirSync(imgDir)
-    .filter((f) => IMAGE_EXTS.includes(path.extname(f).toLowerCase()))
-    .map((f) => ({
-      file: f,
-      fullPath: path.join(imgDir, f),
-      name: path.basename(f, path.extname(f)).toLowerCase(),
-      mtime: fs.statSync(path.join(imgDir, f)).mtimeMs,
-    }))
-    .sort((a, b) => a.mtime - b.mtime);
+  try {
+    return fs.readdirSync(imgDir)
+      .filter((f) => IMAGE_EXTS.includes(path.extname(f).toLowerCase()))
+      .map((f) => ({
+        file: f,
+        fullPath: path.join(imgDir, f),
+        name: path.basename(f, path.extname(f)).toLowerCase(),
+        mtime: fs.statSync(path.join(imgDir, f)).mtimeMs,
+      }))
+      .sort((a, b) => a.mtime - b.mtime);
+  } catch (err) {
+    if (err.code === "EPERM" || err.code === "EACCES") {
+      console.log(`  ⚠ Cannot read image folder "${imgDir}" — permission denied. Skipping images.`);
+      return [];
+    }
+    throw err;
+  }
 }
 
 function findImageForSlug(slug, images) {
