@@ -2,6 +2,28 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import "./onlinetest.css";
+/* ─────────────── EXAM INSTRUCTIONS DATA ─────────────── */
+const EXAM_INSTRUCTIONS = [
+  "Read each question carefully before selecting your answer.",
+  "This exam consists of 15 multiple choice questions (MCQ).",
+  "Each question has only one correct answer.",
+  "Each question carries equal marks.",
+  "There is no negative marking.",
+  "You have one attempt per question — once you move to the next question, you cannot go back.",
+  "Do not refresh or close the browser during the exam as your progress may be lost.",
+  "Your result will be displayed immediately after the last question.",
+];
+
+const EXAM_NOTE = "⚠️ Important: You have only ONE chance per question. Choose wisely before proceeding — you cannot revisit a previous question.";
+
+const QUESTION_PATTERN = {
+  totalQuestions: 15,
+  questionTypes: "Multiple Choice Questions (MCQ)",
+  optionsPerQuestion: 4,
+  correctAnswers: 1,
+  negativeMarking: "None",
+  navigation: "One-way only — forward navigation, no going back",
+};
 
 /* ─────────────── STEP 1 — VERIFICATION FORM ─────────────── */
 function VerificationForm({ onVerified }) {
@@ -45,83 +67,113 @@ function VerificationForm({ onVerified }) {
 
   return (
     <div className="exam-verify-container">
-      <div className="exam-verify-card">
-        <div className="exam-verify-header">
-          <div className="exam-verify-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              <path d="M9 12l2 2 4-4" />
-            </svg>
+      <div className="exam-verify-layout">
+        {/* LEFT — Login Form */}
+        <div className="exam-verify-card">
+          <div className="exam-verify-header">
+            <div className="exam-verify-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <path d="M9 12l2 2 4-4" />
+              </svg>
+            </div>
+            <h1 className="exam-verify-title">Online Examination</h1>
+            <p className="exam-verify-subtitle">Enter your credentials to begin</p>
           </div>
-          <h1 className="exam-verify-title">Online Examination</h1>
-          <p className="exam-verify-subtitle">Enter your credentials to begin</p>
+
+          <form onSubmit={handleSubmit} className="exam-verify-form">
+            <div className="exam-field">
+              <label htmlFor="candidate-name">Full Name</label>
+              <input
+                id="candidate-name"
+                type="text"
+                placeholder="Enter your full name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                autoComplete="name"
+              />
+            </div>
+
+            <div className="exam-field">
+              <label htmlFor="candidate-email">Email Address</label>
+              <input
+                id="candidate-email"
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                autoComplete="email"
+              />
+            </div>
+
+            <div className="exam-field">
+              <label htmlFor="exam-id">Exam ID</label>
+              <input
+                id="exam-id"
+                type="text"
+                placeholder="Enter your exam ID"
+                value={examId}
+                onChange={(e) => setExamId(e.target.value)}
+                required
+                autoComplete="off"
+              />
+            </div>
+
+            {error && (
+              <div className="exam-error" id="exam-error-message">
+                <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
+                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                </svg>
+                {error}
+              </div>
+            )}
+
+            <button
+              type="submit"
+              className="exam-submit-btn"
+              id="verify-exam-btn"
+              disabled={loading}
+            >
+              {loading ? (
+                <span className="exam-btn-loading">
+                  <span className="exam-spinner" />
+                  Verifying...
+                </span>
+              ) : (
+                "Start Examination"
+              )}
+            </button>
+          </form>
         </div>
 
-        <form onSubmit={handleSubmit} className="exam-verify-form">
-          <div className="exam-field">
-            <label htmlFor="candidate-name">Full Name</label>
-            <input
-              id="candidate-name"
-              type="text"
-              placeholder="Enter your full name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-              autoComplete="name"
-            />
-          </div>
-
-          <div className="exam-field">
-            <label htmlFor="candidate-email">Email Address</label>
-            <input
-              id="candidate-email"
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              autoComplete="email"
-            />
-          </div>
-
-          <div className="exam-field">
-            <label htmlFor="exam-id">Exam ID</label>
-            <input
-              id="exam-id"
-              type="text"
-              placeholder="Enter your exam ID"
-              value={examId}
-              onChange={(e) => setExamId(e.target.value)}
-              required
-              autoComplete="off"
-            />
-          </div>
-
-          {error && (
-            <div className="exam-error" id="exam-error-message">
-              <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
-                <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-              </svg>
-              {error}
+        {/* RIGHT — Instructions Panel */}
+        <div className="exam-instructions-panel">
+          {/* Instructions List */}
+          <div className="exam-instructions-card">
+            <div className="exam-instructions-card-header">
+              <span className="exam-instructions-icon">📋</span>
+              <h2 className="exam-instructions-title">Exam Instructions</h2>
             </div>
-          )}
+            <ol className="exam-instructions-list">
+              {EXAM_INSTRUCTIONS.map((instruction, i) => (
+                <li key={i} className="exam-instruction-item">
+                  <span className="exam-instruction-number">{i + 1}</span>
+                  <span className="exam-instruction-text">{instruction}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
 
-          <button
-            type="submit"
-            className="exam-submit-btn"
-            id="verify-exam-btn"
-            disabled={loading}
-          >
-            {loading ? (
-              <span className="exam-btn-loading">
-                <span className="exam-spinner" />
-                Verifying...
-              </span>
-            ) : (
-              "Start Examination"
-            )}
-          </button>
-        </form>
+          {/* Question Pattern */}
+
+
+          {/* Warning Note */}
+          <div className="exam-instructions-note">
+            <p>{EXAM_NOTE}</p>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -196,13 +248,6 @@ function MCQExam({ candidateId, onComplete, violations, onViolation, onAnswersCh
     clearInterval(timerRef.current);
     if (currentQ < questions.length - 1) {
       setCurrentQ((q) => q + 1);
-    }
-  };
-
-  const prevQuestion = () => {
-    clearInterval(timerRef.current);
-    if (currentQ > 0) {
-      setCurrentQ((q) => q - 1);
     }
   };
 
@@ -328,16 +373,8 @@ function MCQExam({ candidateId, onComplete, violations, onViolation, onAnswersCh
         </div>
       </div>
 
-      {/* Navigation */}
-      <div className="exam-nav">
-        <button
-          className="exam-nav-btn exam-nav-prev"
-          onClick={prevQuestion}
-          disabled={currentQ === 0}
-        >
-          ← Previous
-        </button>
-
+      {/* Navigation — forward only, no going back */}
+      <div className="exam-nav exam-nav-center">
         {isLastQuestion ? (
           <button
             className="exam-submit-btn exam-submit-mcq"
@@ -364,20 +401,16 @@ function MCQExam({ candidateId, onComplete, violations, onViolation, onAnswersCh
         )}
       </div>
 
-      {/* Question dots */}
+      {/* Question dots — view only, no backward navigation */}
       <div className="exam-question-dots">
         {questions.map((_, i) => (
-          <button
+          <span
             key={i}
-            className={`exam-dot ${i === currentQ ? "exam-dot-active" : ""} ${answers[questions[i].id] ? "exam-dot-answered" : ""}`}
-            onClick={() => {
-              clearInterval(timerRef.current);
-              setCurrentQ(i);
-            }}
-            aria-label={`Go to question ${i + 1}`}
+            className={`exam-dot ${i === currentQ ? "exam-dot-active" : ""} ${i < currentQ ? "exam-dot-completed" : ""} ${answers[questions[i].id] ? "exam-dot-answered" : ""}`}
+            aria-label={`Question ${i + 1}`}
           >
             {i + 1}
-          </button>
+          </span>
         ))}
       </div>
     </div>
@@ -715,7 +748,7 @@ export default function OnlineTestPage() {
               type: "terminate",
               violations: newViolations,
             }),
-          }).catch(() => {});
+          }).catch(() => { });
         }
       } else {
         setViolationMessage(
@@ -833,7 +866,7 @@ export default function OnlineTestPage() {
             candidateId={candidateId}
             onComplete={handleMCQComplete}
             violations={violations}
-            onViolation={() => {}}
+            onViolation={() => { }}
             onAnswersChange={(a) => { mcqAnswersRef.current = a; }}
           />
         )}

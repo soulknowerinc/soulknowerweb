@@ -137,11 +137,11 @@ const MCQ_QUESTIONS = [
   },
   {
     order: 8,
-    question: "In JavaScript, what does the '===' operator check?",
-    optionA: "Value equality only",
-    optionB: "Type equality only",
-    optionC: "Both value and type equality",
-    optionD: "Reference equality",
+    question: "What will the following JavaScript code output? console.log([] == ![]) ",
+    optionA: "false",
+    optionB: "TypeError",
+    optionC: "true",
+    optionD: "undefined",
     correctAnswer: "C",
   },
   {
@@ -179,7 +179,7 @@ const MCQ_QUESTIONS = [
     optionC: "object",
     optionD: "string",
     correctAnswer: "C",
-  }, ,
+  },
   {
     order: 13,
     question: "Which design pattern ensures only one instance of a class exists?",
@@ -191,12 +191,12 @@ const MCQ_QUESTIONS = [
   },
   {
     order: 14,
-    question: "What is the default port for HTTPS?",
-    optionA: "80",
-    optionB: "443",
-    optionC: "8080",
-    optionD: "3000",
-    correctAnswer: "B",
+    question: "Two sorting algorithms A and B both have O(n log n) average time complexity. In practice, Algorithm A runs faster on large datasets. Which factor most likely explains this?",
+    optionA: "Algorithm A has a smaller constant factor and better cache locality",
+    optionB: "Algorithm A uses more memory which increases speed",
+    optionC: "Algorithm B has a higher space complexity",
+    optionD: "Algorithm A is a comparison-based sort and B is not",
+    correctAnswer: "A",
   },
   {
     order: 15,
@@ -234,8 +234,25 @@ const BEHAVIOURAL_QUESTIONS = [
 
 /* ─────────────── SEED FUNCTION ─────────────── */
 
+async function deleteCollection(collectionName) {
+  const snap = await db.collection(collectionName).get();
+  if (snap.empty) return 0;
+
+  const batch = db.batch();
+  snap.docs.forEach((doc) => batch.delete(doc.ref));
+  await batch.commit();
+  return snap.size;
+}
+
 async function seed() {
   console.log("\n🌱 Seeding Firestore exam data...\n");
+
+  // 0. Clean up old data first
+  console.log("🧹 Cleaning old exam data...");
+  const deletedMcq = await deleteCollection("mcqQuestions");
+  const deletedBehav = await deleteCollection("behaviouralQuestions");
+  const deletedSessions = await deleteCollection("examSessions");
+  console.log(`   Removed ${deletedMcq} MCQ, ${deletedBehav} behavioural, ${deletedSessions} sessions\n`);
 
   // 1. Exam Session
   console.log("📋 Creating exam session...");
