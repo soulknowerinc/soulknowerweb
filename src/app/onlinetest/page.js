@@ -683,43 +683,66 @@ export default function OnlineTestPage() {
     return () => window.removeEventListener("beforeunload", handleBeforeUnload);
   }, []);
 
-  // Anti-cheating: Page Visibility API
+  // Anti-cheating: Page Visibility API + Window Blur (catches tab switch AND app switch)
   useEffect(() => {
-    const handleVisibilityChange = () => {
-      if (document.hidden && stageRef.current !== "verify" && stageRef.current !== "thankyou" && stageRef.current !== "terminated") {
-        const newViolations = violationsRef.current + 1;
-        violationsRef.current = newViolations;
-        setViolations(newViolations);
+    let lastViolationTime = 0;
 
-        if (newViolations >= 3) {
-          // Terminate exam
-          setStage("terminated");
-          setViolationMessage("");
-          setShowViolationAlert(false);
-          // Save termination
-          if (candidateIdRef.current) {
-            fetch("/api/exam/submit", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                candidateId: candidateIdRef.current,
-                type: "terminate",
-                violations: newViolations,
-              }),
-            }).catch(() => {});
-          }
-        } else {
-          setViolationMessage(
-            `Warning ${newViolations}/3: Returning to the exam window. Further violations will terminate your exam.`
-          );
-          setShowViolationAlert(true);
-          setTimeout(() => setShowViolationAlert(false), 5000);
+    const triggerViolation = () => {
+      // Skip if not in an exam stage
+      if (stageRef.current === "verify" || stageRef.current === "thankyou" || stageRef.current === "terminated") return;
+
+      // Debounce — both visibilitychange and blur can fire together
+      const now = Date.now();
+      if (now - lastViolationTime < 1000) return;
+      lastViolationTime = now;
+
+      const newViolations = violationsRef.current + 1;
+      violationsRef.current = newViolations;
+      setViolations(newViolations);
+
+      if (newViolations >= 3) {
+        // Terminate exam
+        setStage("terminated");
+        setViolationMessage("");
+        setShowViolationAlert(false);
+        // Save termination
+        if (candidateIdRef.current) {
+          fetch("/api/exam/submit", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              candidateId: candidateIdRef.current,
+              type: "terminate",
+              violations: newViolations,
+            }),
+          }).catch(() => {});
         }
+      } else {
+        setViolationMessage(
+          `Warning ${newViolations}/3: You switched away from the exam window. Further violations will terminate your exam.`
+        );
+        setShowViolationAlert(true);
+        setTimeout(() => setShowViolationAlert(false), 5000);
       }
     };
 
+    // Detects tab switches (another tab in same browser)
+    const handleVisibilityChange = () => {
+      if (document.hidden) triggerViolation();
+    };
+
+    // Detects window/app switches (Cmd+Tab, clicking another app, etc.)
+    const handleWindowBlur = () => {
+      triggerViolation();
+    };
+
     document.addEventListener("visibilitychange", handleVisibilityChange);
-    return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
+    window.addEventListener("blur", handleWindowBlur);
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      window.removeEventListener("blur", handleWindowBlur);
+    };
   }, []);
 
   // Anti-cheating: Disable copy, paste, right-click
