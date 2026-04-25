@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Sri Yantra",
+    "sanskritName": "श्री यन्त्र",
+    "deity": "Goddess Tripura Sundari",
+    "category": "Yantra",
+    "significance": "The most powerful of all yantras, representing the cosmos and the divine mother's creative force. Nine interlocking triangles radiate from a central bindu point, encoding the entire universe in two dimensions.",
+    "usageInSadhana": "Place on your altar facing east during puja. Meditate on the central bindu to dissolve the mind into its source. Chant Sri Sukta or the Shodashi Mantra while gazing at the form.",
+    "geometry": "sri-yantra"
+  },
+  {
+    "id": 2,
+    "name": "Om",
+    "sanskritName": "ॐ",
+    "deity": "Brahman (Supreme Reality)",
+    "category": "Symbol",
+    "significance": "The primordial sound from which all creation emerged. The three curves represent waking, dreaming, and deep sleep states; the dot above the crescent represents the fourth state — pure consciousness beyond all three.",
+    "usageInSadhana": "Chant Om 108 times at dawn. Visualise the symbol while holding the breath in kumbhaka. The form itself is a visual mantra — steady gazing purifies the mind.",
+    "geometry": "om"
+  },
+  {
+    "id": 3,
+    "name": "Shatkona",
+    "sanskritName": "षट्कोण",
+    "deity": "Shiva & Shakti",
+    "category": "Yantra",
+    "significance": "Two overlapping equilateral triangles — one pointing upward (fire, Shiva, masculine) and one pointing downward (water, Shakti, feminine). The union of these principles generates all existence.",
+    "usageInSadhana": "Used in Anahata (heart chakra) sadhana. Meditate on the two triangles merging to dissolve the sense of inner division. Useful in practices that seek union of opposites.",
+    "geometry": "shatkona"
+  },
+  {
+    "id": 4,
+    "name": "Swastika",
+    "sanskritName": "स्वस्तिक",
+    "deity": "Lord Ganesha",
+    "category": "Symbol",
+    "significance": "One of humanity's oldest sacred symbols, meaning 'that which brings well-being.' The four arms represent the four Vedas, four directions, four stages of life, and the cyclical nature of time.",
+    "usageInSadhana": "Drawn at the entrance of homes and on altars to invite auspicious energy. Used in Griha Pravesh and Satyanarayan puja. Meditating on its rotating arms awakens awareness of cyclical time.",
+    "geometry": "swastika"
+  },
+  {
+    "id": 5,
+    "name": "Ashtadala Padma",
+    "sanskritName": "अष्टदल पद्म",
+    "deity": "Goddess Lakshmi",
+    "category": "Mandala",
+    "significance": "The eight-petalled lotus represents the eight directions, eight forms of Lakshmi, and the unfolding of consciousness from the central bindu. Each petal is a different quality of divine grace.",
+    "usageInSadhana": "Central to Lakshmi puja and Sri Vidya upasana. Visualise yourself sitting at the centre of the lotus as a sadhana of divine identity. Each petal can be contemplated as an aspect of abundance.",
+    "geometry": "lotus"
+  },
+  {
+    "id": 6,
+    "name": "Trishul",
+    "sanskritName": "त्रिशूल",
+    "deity": "Lord Shiva",
+    "category": "Symbol",
+    "significance": "The trident of Shiva represents the three fundamental forces: creation (Brahma), preservation (Vishnu), and dissolution (Mahesh). It also symbolises the three gunas: tamas, rajas, and sattva.",
+    "usageInSadhana": "Contemplated during Shaivite sadhana to understand the three-fold nature of existence. Holding the trishul image in mind during meditation helps pierce the three veils of illusion.",
+    "geometry": "trishul"
+  },
+  {
+    "id": 7,
+    "name": "Shiva Lingam",
+    "sanskritName": "शिव लिङ्ग",
+    "deity": "Lord Shiva",
+    "category": "Symbol",
+    "significance": "The oval form of the lingam resting in the yoni represents the union of Shiva (formless consciousness) and Shakti (creative energy). It is both the seed of all manifestation and its dissolution.",
+    "usageInSadhana": "Poured over with water, milk, honey, and bael leaves in abhisheka. Meditate on the lingam as the axis mundi — the pillar of light connecting earth and sky, the finite and infinite.",
+    "geometry": "lingam"
+  },
+  {
+    "id": 8,
+    "name": "Dharma Chakra",
+    "sanskritName": "धर्म चक्र",
+    "deity": "Lord Vishnu",
+    "category": "Mandala",
+    "significance": "The wheel of dharma with eight spokes represents the Noble Eightfold Path and the cosmic order that sustains all life. The hub is the still centre; the spokes are the laws; the rim is the boundary of manifestation.",
+    "usageInSadhana": "Contemplate the wheel as the mind — constantly spinning on the periphery while the centre remains still. Sadhana is the return to the hub. Used in Vaishnava worship and Vedic rituals.",
+    "geometry": "chakra"
+  },
+  {
+    "id": 9,
+    "name": "Bindu",
+    "sanskritName": "बिन्दु",
+    "deity": "Para Brahman",
+    "category": "Yantra",
+    "significance": "The dot — the most concentrated point of consciousness. The bindu is the origin of all yantras and represents the state just before creation, where infinite potential exists in dimensionless form.",
+    "usageInSadhana": "The most advanced single-pointed meditation object. Fix the gaze on the bindu without blinking (trataka) to dissolve the mind. The Bindu Visarga at the crown is awakened through this practice.",
+    "geometry": "bindu"
+  },
+  {
+    "id": 10,
+    "name": "Kalachakra",
+    "sanskritName": "कालचक्र",
+    "deity": "Lord Kala (Time)",
+    "category": "Mandala",
+    "significance": "The Wheel of Time — a complex mandala encoding the cycles of cosmic time, the movements of planets, and the body's inner time cycles. Profound in both Hindu and Buddhist cosmology.",
+    "usageInSadhana": "Used in advanced tantric sadhana for mastery over time and the transcendence of cyclic existence. Contemplate the wheel to understand how all experience arises and dissolves within the field of awareness.",
+    "geometry": "kalachakra"
+  },
+  {
+    "id": 11,
+    "name": "Flower of Life",
+    "sanskritName": "जीवन पुष्प",
+    "deity": "Brahma (The Creator)",
+    "category": "Mandala",
+    "significance": "Seven overlapping circles forming a perfect geometric flower. Found in ancient Hindu temples, it encodes the Fibonacci sequence, the Platonic solids, and the fundamental pattern of all organic life.",
+    "usageInSadhana": "A bridge between Vedic and universal sacred geometry. Meditate on the overlapping circles to feel your own boundaries dissolve into interconnectedness. Said to carry the memory of creation itself.",
+    "geometry": "flower-of-life"
+  },
+  {
+    "id": 12,
+    "name": "Navagraha Mandala",
+    "sanskritName": "नवग्रह मण्डल",
+    "deity": "The Nine Planetary Deities",
+    "category": "Mandala",
+    "significance": "A nine-square grid representing the nine planets (grahas) that govern karma and destiny: Surya, Chandra, Mangala, Budha, Guru, Shukra, Shani, Rahu, and Ketu. The centre holds the Sun.",
+    "usageInSadhana": "Worshipped on Saturday for Shani, Sunday for Surya, or during Navagaha shanti puja. Meditating on the mandala with specific bija mantras can harmonise planetary influences in one's chart.",
+    "geometry": "navagraha"
+  }
+]

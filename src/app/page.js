@@ -4,6 +4,7 @@ import { useEffect, useState, useRef, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import BlogCard from "@/components/BlogCard";
+import Navbar from "@/components/Navbar";
 
 /* ─────────────── MOBILE DETECTION ─────────────── */
 
@@ -229,52 +230,6 @@ function MantraTicker() {
 }
 
 /* ─────────────── NAVBAR ─────────────── */
-
-function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  // Lock body scroll when menu is open
-  useEffect(() => {
-    if (menuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => { document.body.style.overflow = ''; };
-  }, [menuOpen]);
-
-  return (
-    <nav className={`navbar ${scrolled ? "scrolled" : ""} ${menuOpen ? "menu-open" : ""}`} id="navbar">
-      <div className="nav-container">
-        <a href="#home" className="nav-logo">
-          <Image src="/logo_wb.png" alt="SoulKnower" width={48} height={48} className="logo-icon-img" priority />
-          <span className="logo-text">SoulKnower</span>
-        </a>
-        <ul className={`nav-links ${menuOpen ? "mobile-active" : ""}`}>
-          <li><a href="#home" className="nav-link" onClick={() => setMenuOpen(false)}>Home</a></li>
-          <li><a href="#about" className="nav-link" onClick={() => setMenuOpen(false)}>About</a></li>
-          <li><Link href="/blogs" className="nav-link" onClick={() => setMenuOpen(false)}>Blogs</Link></li>
-          <li><Link href="/videos" className="nav-link" onClick={() => setMenuOpen(false)}>Videos</Link></li>
-          <li><a href="https://www.youtube.com/@SoulKnower" target="_blank" rel="noopener noreferrer" className="nav-cta">Subscribe ✦</a></li>
-        </ul>
-        <button
-          className={`mobile-toggle ${menuOpen ? "active" : ""}`}
-          aria-label="Menu"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </nav>
-  );
-}
 
 /* ─────────────── HERO WITH PARALLAX + MANDALA + TYPEWRITER ─────────────── */
 

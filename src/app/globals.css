@@ -497,11 +497,13 @@ body {
   border-radius: 1px;
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.nav-link--active {
   color: var(--text-accent);
 }
 
-.nav-link:hover::after {
+.nav-link:hover::after,
+.nav-link--active::after {
   width: 100%;
 }
 
@@ -2495,6 +2497,10 @@ body {
 
   .nav-links.mobile-active li:nth-child(5) {
     animation-delay: 0.25s;
+  }
+
+  .nav-links.mobile-active li:nth-child(6) {
+    animation-delay: 0.3s;
   }
 
   @keyframes mobileNavIn {

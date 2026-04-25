@@ -1,0 +1,302 @@
+[
+  {
+    "id": 1,
+    "devanagari": "ॐ नमो भगवते वासुदेवाय",
+    "transliteration": "Om Namo Bhagavate Vasudevaya",
+    "deity": "Lord Vishnu",
+    "meaning": "I bow to the Lord who dwells in all hearts",
+    "benefits": "Removes obstacles, dissolves karmic bondage, bestows liberation",
+    "tithi": "Chaturthi",
+    "audioUrl": "/audio/mantra-1.mp3"
+  },
+  {
+    "id": 2,
+    "devanagari": "ॐ नमः शिवाय",
+    "transliteration": "Om Namah Shivaya",
+    "deity": "Lord Shiva",
+    "meaning": "I bow to Shiva, the auspicious one within all existence",
+    "benefits": "Purifies the soul, destroys ego, grants divine grace and moksha",
+    "tithi": "Pradosham",
+    "audioUrl": "/audio/mantra-2.mp3"
+  },
+  {
+    "id": 3,
+    "devanagari": "ॐ गं गणपतये नमः",
+    "transliteration": "Om Gam Ganapataye Namaha",
+    "deity": "Lord Ganesha",
+    "meaning": "I bow to Ganesha, the remover of all obstacles",
+    "benefits": "Clears path of obstacles, bestows wisdom, ensures auspicious beginnings",
+    "tithi": "Chaturthi",
+    "audioUrl": "/audio/mantra-3.mp3"
+  },
+  {
+    "id": 4,
+    "devanagari": "ॐ ऐं सरस्वत्यै नमः",
+    "transliteration": "Om Aim Saraswatyai Namaha",
+    "deity": "Goddess Saraswati",
+    "meaning": "I bow to Saraswati, the goddess of wisdom and creative expression",
+    "benefits": "Grants eloquence, sharpens intellect, awakens creativity and memory",
+    "tithi": "Panchami",
+    "audioUrl": "/audio/mantra-4.mp3"
+  },
+  {
+    "id": 5,
+    "devanagari": "ॐ श्रीं महालक्ष्म्यै नमः",
+    "transliteration": "Om Shrim Mahalakshmyai Namaha",
+    "deity": "Goddess Mahalakshmi",
+    "meaning": "I invoke Mahalakshmi, the goddess of abundance and divine grace",
+    "benefits": "Attracts prosperity, purifies karmic debt, opens channels of abundance",
+    "tithi": "Purnima",
+    "audioUrl": "/audio/mantra-5.mp3"
+  },
+  {
+    "id": 6,
+    "devanagari": "ॐ दुं दुर्गायै नमः",
+    "transliteration": "Om Dum Durgayai Namaha",
+    "deity": "Goddess Durga",
+    "meaning": "I bow to Durga, the invincible one who protects all existence",
+    "benefits": "Destroys negative forces, bestows fierce protection and inner strength",
+    "tithi": "Ashtami",
+    "audioUrl": "/audio/mantra-6.mp3"
+  },
+  {
+    "id": 7,
+    "devanagari": "ॐ हं हनुमते नमः",
+    "transliteration": "Om Ham Hanumate Namaha",
+    "deity": "Lord Hanuman",
+    "meaning": "I bow to Hanuman, the embodiment of devotion and divine strength",
+    "benefits": "Grants courage, removes fear, purifies the mind through selfless devotion",
+    "tithi": "Trayodashi",
+    "audioUrl": "/audio/mantra-7.mp3"
+  },
+  {
+    "id": 8,
+    "devanagari": "ॐ ह्रीं ह्रीं सूर्याय नमः",
+    "transliteration": "Om Hrim Hrim Suryaya Namaha",
+    "deity": "Lord Surya",
+    "meaning": "I bow to Surya, the radiant source of all light and life",
+    "benefits": "Awakens vitality, clears confusion, bestows clarity of vision and purpose",
+    "tithi": "Saptami",
+    "audioUrl": "/audio/mantra-8.mp3"
+  },
+  {
+    "id": 9,
+    "devanagari": "ॐ त्र्यम्बकं यजामहे सुगन्धिं पुष्टिवर्धनम् उर्वारुकमिव बन्धनान् मृत्योर्मुक्षीय माऽमृतात्",
+    "transliteration": "Om Tryambakam Yajamahe Sugandhim Pushtivardhanam Urvarukamiva Bandhanan Mrityor Mukshiya Mamritat",
+    "deity": "Lord Shiva (Mahamrityunjaya)",
+    "meaning": "We worship the three-eyed Lord who nourishes and increases the sweetness of life",
+    "benefits": "Conquers death and disease, bestows longevity and fearlessness",
+    "tithi": "Trayodashi",
+    "audioUrl": "/audio/mantra-9.mp3"
+  },
+  {
+    "id": 10,
+    "devanagari": "ॐ भूर्भुवः स्वः तत्सवितुर्वरेण्यं भर्गो देवस्य धीमहि धियो यो नः प्रचोदयात्",
+    "transliteration": "Om Bhur Bhuva Svaha Tat Savitur Varenyam Bhargo Devasya Dhimahi Dhiyo Yo Nah Prachodayat",
+    "deity": "Goddess Gayatri",
+    "meaning": "We meditate on the divine radiance of the supreme light; may it illuminate our intellect",
+    "benefits": "Awakens cosmic intelligence, purifies mind and soul, connects to universal consciousness",
+    "tithi": "Pratipada",
+    "audioUrl": "/audio/mantra-10.mp3"
+  },
+  {
+    "id": 11,
+    "devanagari": "ॐ नमो नारायणाय",
+    "transliteration": "Om Namo Narayanaya",
+    "deity": "Lord Narayana",
+    "meaning": "I bow to Narayana, the sustainer who pervades all of creation",
+    "benefits": "Bestows inner peace, liberation, and aligns the seeker with cosmic order",
+    "tithi": "Ekadashi",
+    "audioUrl": "/audio/mantra-11.mp3"
+  },
+  {
+    "id": 12,
+    "devanagari": "ॐ क्रीं कालिकायै नमः",
+    "transliteration": "Om Krim Kalikayai Namaha",
+    "deity": "Goddess Kali",
+    "meaning": "I bow to Kali, the destroyer of time and the liberator from illusion",
+    "benefits": "Destroys ego and ignorance, grants fearlessness and swift liberation",
+    "tithi": "Ashtami",
+    "audioUrl": "/audio/mantra-12.mp3"
+  },
+  {
+    "id": 13,
+    "devanagari": "ॐ श्री रामाय नमः",
+    "transliteration": "Om Shri Ramaya Namaha",
+    "deity": "Lord Rama",
+    "meaning": "I bow to Sri Rama, the ideal of righteousness and divine virtue",
+    "benefits": "Bestows harmony, righteousness, and the protection of divine dharma",
+    "tithi": "Navami",
+    "audioUrl": "/audio/mantra-13.mp3"
+  },
+  {
+    "id": 14,
+    "devanagari": "ॐ नमो भगवते रुद्राय",
+    "transliteration": "Om Namo Bhagavate Rudraya",
+    "deity": "Lord Rudra",
+    "meaning": "I bow to the fierce Rudra, lord of storms and transformation",
+    "benefits": "Purifies deep karma, grants fearlessness and fierce inner strength",
+    "tithi": "Chaturdashi",
+    "audioUrl": "/audio/mantra-14.mp3"
+  },
+  {
+    "id": 15,
+    "devanagari": "ॐ ऐं ह्रीं क्लीं चामुण्डायै विच्चे",
+    "transliteration": "Om Aim Hrim Klim Chamundayai Vicche",
+    "deity": "Goddess Chamunda",
+    "meaning": "I invoke Chamunda, the fierce aspect of Devi who destroys all evil",
+    "benefits": "Eliminates malevolent forces, bestows invincibility and divine protection",
+    "tithi": "Ashtami",
+    "audioUrl": "/audio/mantra-15.mp3"
+  },
+  {
+    "id": 16,
+    "devanagari": "ॐ नमो भगवते श्री कृष्णाय",
+    "transliteration": "Om Namo Bhagavate Shri Krishnaya",
+    "deity": "Lord Krishna",
+    "meaning": "I bow to Lord Krishna, the supreme being of joy and divine love",
+    "benefits": "Opens the heart, bestows divine joy, dissolves separation from the eternal",
+    "tithi": "Ashtami",
+    "audioUrl": "/audio/mantra-16.mp3"
+  },
+  {
+    "id": 17,
+    "devanagari": "ॐ उग्रं वीरं महाविष्णुं ज्वलन्तं सर्वतोमुखम्",
+    "transliteration": "Om Ugram Viram Mahavishnum Jvalantam Sarvatomukham",
+    "deity": "Lord Narasimha",
+    "meaning": "I meditate on the fierce, heroic Narasimha, blazing and all-pervading",
+    "benefits": "Destroys evil, grants protection to devotees in times of great fear",
+    "tithi": "Chaturdashi",
+    "audioUrl": "/audio/mantra-17.mp3"
+  },
+  {
+    "id": 18,
+    "devanagari": "ॐ नमो वेङ्कटेशाय",
+    "transliteration": "Om Namo Venkatesaya",
+    "deity": "Lord Venkateshwara",
+    "meaning": "I bow to Venkateshwara, the Lord of the sacred hill who fulfils all wishes",
+    "benefits": "Fulfils desires, bestows material and spiritual abundance and blessings",
+    "tithi": "Ekadashi",
+    "audioUrl": "/audio/mantra-18.mp3"
+  },
+  {
+    "id": 19,
+    "devanagari": "ॐ ऐं ह्रीं श्रीं त्रिपुरसुन्दर्यै नमः",
+    "transliteration": "Om Aim Hrim Shrim Tripurasundaryai Namaha",
+    "deity": "Goddess Tripura Sundari",
+    "meaning": "I bow to Tripura Sundari, the most beautiful in all three worlds",
+    "benefits": "Bestows radiant beauty of being, divine love, and blissful liberation",
+    "tithi": "Navami",
+    "audioUrl": "/audio/mantra-19.mp3"
+  },
+  {
+    "id": 20,
+    "devanagari": "ॐ ह्रीं श्रीं पार्वत्यै नमः",
+    "transliteration": "Om Hrim Shrim Parvataiye Namaha",
+    "deity": "Goddess Parvati",
+    "meaning": "I bow to Parvati, the daughter of the mountain and mother of the universe",
+    "benefits": "Strengthens family bonds, deepens devotion, bestows grace and inner beauty",
+    "tithi": "Tritiya",
+    "audioUrl": "/audio/mantra-20.mp3"
+  },
+  {
+    "id": 21,
+    "devanagari": "ॐ शरवणभव",
+    "transliteration": "Om Saravanabhava",
+    "deity": "Lord Kartikeya",
+    "meaning": "Om, born in the sacred grove of reeds — the seed mantra of Skanda",
+    "benefits": "Bestows victory in all endeavours, removes obstacles on the spiritual path",
+    "tithi": "Shashthi",
+    "audioUrl": "/audio/mantra-21.mp3"
+  },
+  {
+    "id": 22,
+    "devanagari": "ॐ वेदात्मनाय विद्महे हिरण्यगर्भाय धीमहि तन्नो ब्रह्म प्रचोदयात्",
+    "transliteration": "Om Vedatmanaya Vidmahe Hiranyagarbhaya Dhimahi Tanno Brahma Prachodayat",
+    "deity": "Lord Brahma",
+    "meaning": "We know the Self of the Vedas; we meditate on the golden womb of creation",
+    "benefits": "Awakens creative intelligence, aligns with cosmic will and divine purpose",
+    "tithi": "Pratipada",
+    "audioUrl": "/audio/mantra-22.mp3"
+  },
+  {
+    "id": 23,
+    "devanagari": "ॐ भैरवाय नमः",
+    "transliteration": "Om Bhairavaya Namaha",
+    "deity": "Lord Bhairava",
+    "meaning": "I bow to Bhairava, the terrible and magnificent guardian of time",
+    "benefits": "Protects against malevolent forces, bestows fearlessness and night-time protection",
+    "tithi": "Ashtami",
+    "audioUrl": "/audio/mantra-23.mp3"
+  },
+  {
+    "id": 24,
+    "devanagari": "ॐ तत्पुरुषाय विद्महे महासेनाय धीमहि तन्नः स्कन्दः प्रचोदयात्",
+    "transliteration": "Om Tatpurushaya Vidmahe Mahasenaya Dhimahi Tannah Skandah Prachodayat",
+    "deity": "Lord Skanda",
+    "meaning": "We know that Supreme Being; we meditate on the great general of the gods",
+    "benefits": "Grants victory, courage, and the power to cut through illusion with divine wisdom",
+    "tithi": "Shashthi",
+    "audioUrl": "/audio/mantra-24.mp3"
+  },
+  {
+    "id": 25,
+    "devanagari": "ॐ गङ्गायै नमः",
+    "transliteration": "Om Gangayai Namaha",
+    "deity": "Mother Ganga",
+    "meaning": "I bow to Mother Ganga, the sacred river that purifies all existence",
+    "benefits": "Purifies karmic accumulations, bestows healing and spiritual cleansing",
+    "tithi": "Dwitiya",
+    "audioUrl": "/audio/mantra-25.mp3"
+  },
+  {
+    "id": 26,
+    "devanagari": "ॐ दिगम्बराय विद्महे योगीश्वराय धीमहि तन्नो दत्तः प्रचोदयात्",
+    "transliteration": "Om Digambaraya Vidmahe Yogishwaraya Dhimahi Tanno Dattah Prachodayat",
+    "deity": "Lord Dattatreya",
+    "meaning": "We know the sky-clad Lord; we meditate on the master of yoga",
+    "benefits": "Bestows non-dual awareness, dissolves the illusion of separateness",
+    "tithi": "Tritiya",
+    "audioUrl": "/audio/mantra-26.mp3"
+  },
+  {
+    "id": 27,
+    "devanagari": "ॐ यक्षाय कुबेराय वैश्रवणाय धनधान्याधिपतये धनधान्यसमृद्धिं मे देहि दापय स्वाहा",
+    "transliteration": "Om Yakshaya Kuberaya Vaishravanaya Dhanadhanyadi Pataye Dhanadhanya Samriddhim Me Dehi Dapaya Svaha",
+    "deity": "Lord Kubera",
+    "meaning": "I invoke Kubera, lord of yakshas and keeper of divine treasures",
+    "benefits": "Opens doors to material abundance, financial protection, and prosperity",
+    "tithi": "Dwitiya",
+    "audioUrl": "/audio/mantra-27.mp3"
+  },
+  {
+    "id": 28,
+    "devanagari": "ॐ अग्नये स्वाहा",
+    "transliteration": "Om Agnaye Svaha",
+    "deity": "Lord Agni",
+    "meaning": "I offer this oblation to Agni, the divine fire of transformation",
+    "benefits": "Purifies through sacred fire, transforms karma, strengthens digestive and vital energy",
+    "tithi": "Pratipada",
+    "audioUrl": "/audio/mantra-28.mp3"
+  },
+  {
+    "id": 29,
+    "devanagari": "ॐ श्री राम जय राम जय जय राम",
+    "transliteration": "Om Shri Ram Jay Ram Jay Jay Ram",
+    "deity": "Lord Rama",
+    "meaning": "Victory to Shri Rama — the chant of Saint Tukaram that liberates through pure devotion",
+    "benefits": "Fills the heart with devotion, grants victory over the lower self",
+    "tithi": "Navami",
+    "audioUrl": "/audio/mantra-29.mp3"
+  },
+  {
+    "id": 30,
+    "devanagari": "ॐ नमः पार्वतीपतये हर हर महादेव",
+    "transliteration": "Om Namah Parvatipataye Hara Hara Mahadeva",
+    "deity": "Lord Shiva",
+    "meaning": "I bow to the lord of Parvati — Hara, Hara, the great god who takes away all suffering",
+    "benefits": "Harmonises Shiva and Shakti energies within, bestows bliss and liberation",
+    "tithi": "Trayodashi",
+    "audioUrl": "/audio/mantra-30.mp3"
+  }
+]

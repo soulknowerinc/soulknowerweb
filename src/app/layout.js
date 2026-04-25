@@ -2,6 +2,7 @@ import {
   Cinzel_Decorative,
   Cormorant_Garamond,
   Inter,
+  Noto_Serif_Devanagari,
   Outfit,
 } from "next/font/google";
 import "./globals.css";
@@ -33,6 +34,13 @@ const outfit = Outfit({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-body",
+  display: "swap",
+});
+
+const notoDevanagari = Noto_Serif_Devanagari({
+  subsets: ["devanagari"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-deva",
   display: "swap",
 });
 
@@ -107,7 +115,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${cinzel.variable} ${cormorant.variable} ${inter.variable} ${outfit.variable}`}
+      className={`${cinzel.variable} ${cormorant.variable} ${inter.variable} ${outfit.variable} ${notoDevanagari.variable}`}
     >
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(WEB_SITE_JSON_LD) }} />
